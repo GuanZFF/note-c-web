@@ -1,0 +1,18 @@
+.Detail-App {
+    text-align: center;
+}
+
+.Detail-Header {
+    margin: 0 10px;
+}
+
+.Detail-Context {
+    margin: 5px 10px 5px 10px;
+    background-color: #f9f6f9;
+    border-radius: 2px;
+}
+
+.detail-img-box {
+    height: 160px;
+    width: 320px;
+}

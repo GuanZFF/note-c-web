@@ -50,14 +50,14 @@ export function getRecycleCommodity() {
  * @param commodityNo 商品编号
  * @returns {Promise<{code: number, msg: string, data: {commodityNo: string, commodityName: string, commodityPictureUrl: string, recycleTime: string, expectSellPrice: string}}>}
  */
-export function getcommodtiyDetail(commodityNo) {
+export function getCommodityDetail(commodityNo) {
     return Promise.resolve({
         code: 200,
         msg: '',
         data: {
             commodityNo: 'SP0010010001',
             commodityName: '液晶电视机27寸',
-            commodityPictureUrl: 'https://zfguan.oss-cn-beijing.aliyuncs.com/img1.jpeg?Expires=1534675380&OSSAccessKeyId=TMP.AQFgYeaVzs1R5fxNwsp-gxaOVExdOQj2a6XX7lpk--psIElHpE08HcLal8TjMC4CFQCBQkTwxQ5GxbHPEgJi_gF1NN00hgIVALxr34O4f-Jr6hdx-woB9VxmDMd6&Signature=l3dG66nE4ZCMvy%2FGF5Yym6eo7uA%3D',
+            commodityPictureUrl: 'https://zfguan.oss-cn-beijing.aliyuncs.com/img1.jpeg',
             recycleTime: '2018-08-15 13:58:43',
             expectSellPrice: '23.5',
         }

@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
+import ReactDOM from 'react-dom';
 import logo from './logo.svg';
-import './App.css';
-import {getRecycleCommodity} from './mock-api';
+import './CommodityList.css';
+import {getRecycleCommodity} from './mock/mock-api';
 import img1 from './image/img1.jpg'
 
-class App extends Component {
+class CommodityList extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -24,8 +25,29 @@ class App extends Component {
             });
     }
 
+    componentDidMount() {
+        document.body.addEventListener('touchend', () => {
+            let h = document.documentElement.scrollHeight - document.documentElement.scrollTop;
+            if (h <= document.documentElement.clientHeight) {
+                getRecycleCommodity()
+                    .then(res => {
+                        res.data.list.forEach(item => this.state.list.push(item));
+                    })
+                    .catch(err => {
+                        console.log(err);
+                    });
+                ReactDOM.render(<CommodityList/>, document.getElementById('root'));
+            }
+        });
+    }
+
+    static handle(commodityNo) {
+        window.location.href = `commodityDetail?commodityNo=${commodityNo}`;
+    }
+
     render() {
         const list = this.state.list;
+        console.log(this.state);
         return (
             <div className="App">
                 <header className="App-header">
@@ -34,7 +56,7 @@ class App extends Component {
                 {
                     list.map((item, i) => {
                         return (
-                            <div className="List" key={i}>
+                            <div className="List" key={i} onClick={() => CommodityList.handle(item.commodityNo)}>
                                 <div className="Header">
                                     <img src={item.commodityPictureUrl || img1} alt="logo" width="100" height="95" className="img-box"/>
                                 </div>
@@ -52,4 +74,4 @@ class App extends Component {
     }
 }
 
-export default App;
+export default CommodityList;
