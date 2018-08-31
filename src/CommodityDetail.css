@@ -1,5 +1,6 @@
 .Detail-App {
     text-align: center;
+    padding: 10px;
 }
 
 .Detail-Header {
@@ -13,6 +14,4 @@
 }
 
 .detail-img-box {
-    height: 160px;
-    width: 320px;
 }

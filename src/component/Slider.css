@@ -1,0 +1,33 @@
+.container {
+    position: relative;
+    overflow: hidden;
+    cursor: -webkit-grab;
+}
+
+.indicateBox {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    text-align: center;
+}
+
+.indicateDot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin: 10px 5px;
+    transition: all .5s;
+    -webkit-transition: all .5s;
+    background: rgba(255, 255, 255, .5);
+}
+
+.scroller {
+    white-space: nowrap;
+    -webkit-transition: all .5s;
+}
+
+.img {
+    width: 100%;
+    display: inline-block;
+}

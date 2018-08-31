@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import logo from './logo.svg';
 import './CommodityList.css';
 import {getRecycleCommodity} from './mock/mock-api';
-import img1 from './image/img1.jpg'
+import img1 from './image/img1.jpg';
+import BusinessCard from './BusinessCard';
 
 class CommodityList extends Component {
     constructor(props) {
@@ -51,7 +52,7 @@ class CommodityList extends Component {
         return (
             <div className="App">
                 <header className="App-header">
-                    <img src={logo} className="App-logo" alt="logo"/>
+                    <BusinessCard/>
                 </header>
                 {
                     list.map((item, i) => {
