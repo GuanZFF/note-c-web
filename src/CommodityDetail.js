@@ -1,9 +1,11 @@
 import React, {Component} from 'react';
 import './CommodityDetail.css';
 import {getUrlParam} from './utils/Url';
-import {getCommodityDetail} from './mock/mock-api';
+import {getCommodityDetail, getRecycleCommodity} from './mock/mock-api';
 import Silder from './component/Slider';
-import BusinessCard from './BusinessCard';
+import BusinessCard from './component/BusinessCard';
+import SliderImg from './component/SliderImg';
+
 
 class CommodityDetail extends Component {
 
@@ -16,10 +18,17 @@ class CommodityDetail extends Component {
             commodityPictureUrl: '',
             recycleTime: '',
             expectSellPrice: '',
-        }
+            imgUrl: [],
+            auto: true,
+            autoTime: 2000,
+        };
     }
 
     componentWillMount() {
+        this.initCommodityDetail();
+    }
+
+    initCommodityDetail = () => {
         getCommodityDetail(this.commodityNo)
             .then(res => {
                 this.setState({
@@ -28,12 +37,13 @@ class CommodityDetail extends Component {
                     commodityPictureUrl: res.data.commodityPictureUrl,
                     recycleTime: res.data.recycleTime,
                     expectSellPrice: res.data.expectSellPrice,
-                })
+                    imgUrl: res.data.imgUrl,
+                });
             })
             .catch(err => {
                 console.log(err);
-            })
-    }
+            });
+    };
 
     componentDidMount() {
         document.body.addEventListener('touchstart', () => {
@@ -46,8 +56,7 @@ class CommodityDetail extends Component {
             'http://static.bootcss.com/www/assets/img/opencdn.png',
             'http://static.bootcss.com/www/assets/img/gulpjs.png',
             'http://static.bootcss.com/www/assets/img/flat-ui.png',
-        ];
-        const auto = true;
+        ]
         return (
             <div className="Detail-App">
                 <div className="Detail-Header">
@@ -59,8 +68,10 @@ class CommodityDetail extends Component {
                 <div className="Detail-Context">
                     <h1>{this.state.commodityName}</h1>
                 </div>
-                <Silder images={images} auto={auto} autoTime={2000}/>
+                <Silder images={images} auto={this.state.auto} autoTime={this.state.autoTime}/>
                 <BusinessCard/>
+
+                <SliderImg images={this.state.imgUrl}/>
             </div>
         );
     }

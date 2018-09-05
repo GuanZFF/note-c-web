@@ -1,0 +1,48 @@
+/*轮播图样式设置*/
+
+/*-------------图片样式---------------*/
+.sliderApp {
+    position: relative;
+    overflow: hidden;
+}
+
+.sliderImage {
+    white-space: nowrap;
+}
+
+.imgBox {
+    width: 100%;
+    display: inline-block;
+}
+
+/*-------------目录样式---------------*/
+
+.sliderCatalog {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    text-align: center;
+}
+
+.activeCatalog {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, .9);
+    margin: 10px 5px;
+    transition: all .5s;
+    -webkit-transition: all .5s;
+}
+
+.negativeCatalog {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, .5);
+    margin: 10px 5px;
+    transition: all .5s;
+    -webkit-transition: all .5s;
+}
+

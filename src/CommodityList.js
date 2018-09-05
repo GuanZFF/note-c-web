@@ -1,74 +1,85 @@
 import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
-import logo from './logo.svg';
 import './CommodityList.css';
 import {getRecycleCommodity} from './mock/mock-api';
-import img1 from './image/img1.jpg';
-import BusinessCard from './BusinessCard';
+import BusinessCard from './component/BusinessCard';
+import CommodityButton from './component/CommodityButton';
+import LimitedInfiniteScroll from 'react-limited-infinite-scroll';
 
+/**
+ * 商品列表页面
+ */
 class CommodityList extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            list: []
-        }
+            pageNo: 1,             // 当前页
+            pageSize: 10,          // 页大小
+            totalPage: 5,          // 总页数
+            list: [],              // 订单列表
+        };
+        this.loadNextPage = this.loadNextPage.bind(this);
     }
 
+    /**
+     * 初始值
+     */
     componentWillMount() {
+        this.loadNextPage();
+    }
+
+    /**
+     * 构建商品列表
+     *
+     * @returns {any[]}
+     */
+    commodityList = () => {
+        return this.state.list.map((item, index) => {
+            return (
+                <CommodityButton
+                    key={index}
+                    commodityNo={item.commodityNo}
+                    imgUrl={item.commodityPictureUrl}
+                    name={item.commodityName}
+                    price={item.expectSellPrice}
+                    remark={item.remark}/>
+            );
+        });
+    };
+
+    /**
+     * 分页加载列表
+     */
+    loadNextPage = () => {
         getRecycleCommodity()
             .then(res => {
                 this.setState({
-                    list: res.data.list
+                    pageNo: this.state.pageNo + 1,
+                    totalPage: this.state.totalPage,
+                    list: this.state.list.concat(res.data.list)
                 });
             })
             .catch(err => {
                 console.log(err);
             });
-    }
-
-    componentDidMount() {
-        document.body.addEventListener('touchend', () => {
-            let h = document.documentElement.scrollHeight - document.documentElement.scrollTop;
-            if (h <= document.documentElement.clientHeight) {
-                getRecycleCommodity()
-                    .then(res => {
-                        res.data.list.forEach(item => this.state.list.push(item));
-                    })
-                    .catch(err => {
-                        console.log(err);
-                    });
-                ReactDOM.render(<CommodityList/>, document.getElementById('root'));
-            }
-        });
-    }
-
-    static handle(commodityNo) {
-        window.location.href = `commodityDetail?commodityNo=${commodityNo}`;
-    }
+    };
 
     render() {
-        const list = this.state.list;
-        console.log(this.state);
         return (
             <div className="App">
-                <header className="App-header">
-                    <BusinessCard/>
-                </header>
+                {/*商品列表头部卡片*/}
+                <BusinessCard/>
                 {
-                    list.map((item, i) => {
-                        return (
-                            <div className="List" key={i} onClick={() => CommodityList.handle(item.commodityNo)}>
-                                <div className="Header">
-                                    <img src={item.commodityPictureUrl || img1} alt="logo" width="100" height="95" className="img-box"/>
-                                </div>
-                                <div className="Context">
-                                    <p className="title">{item.commodityName}</p>
-                                    <p className="price">{item.expectSellPrice}元</p>
-                                    <p className="remark">{item.remark}</p>
-                                </div>
-                            </div>
-                        );
-                    })
+                    // 商品列表设置
+                    <LimitedInfiniteScroll
+                        limit={Infinity}
+                        autoLoad={false}
+                        hasMore={this.state.pageNo <= this.state.totalPage}
+                        spinLoader={<div className="loader">加载中...</div>}
+                        mannualLoader={<div className="loader">加载更多</div>}
+                        noMore={<div className="loader">没有更多商品啦~</div>}
+                        loadNext={this.loadNextPage}>
+                        {this.commodityList()}
+                    </LimitedInfiniteScroll>
                 }
             </div>
         );

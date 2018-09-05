@@ -74,6 +74,7 @@ export default class Slider extends Component {
     }
 
     componentDidMount() {
+        console.log("222");
         const {
             refs: {container},
             props: {auto}
@@ -201,7 +202,7 @@ export default class Slider extends Component {
             let _index = this.state.index + 1
 
             _index = _index > picNum - 1 ? 0 : _index
-            this.setState({index: _index})
+            // this.setState({index: _index})
             this.moveInfo.endX = -1 * _index * containerWidth
             scroller.style.transform = `translateX(${this.moveInfo.endX}px)`
             scroller.style.webkitTransform = `translateX(${this.moveInfo.endX}px)`
@@ -216,6 +217,7 @@ export default class Slider extends Component {
             props: {images},
             style
         } = this;
+        console.log(images);
         return (
             <div className="container" ref="container">
                 <div className="scroller" ref="scroller">

@@ -1,3 +1,10 @@
+.App-header {
+    background-color: #222;
+    height: 95px;
+    padding: 20px;
+    margin-bottom: 33px;
+}
+
 .BusinessCardApp {
     background-color: white;
     border-radius: 3px;

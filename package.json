@@ -7,6 +7,8 @@
         "react": "^16.4.2",
         "react-addons-css-transition-group": "^15.4.2",
         "react-dom": "^16.4.2",
+        "react-infinite-scroll": "^0.1.5",
+        "react-limited-infinite-scroll": "^2.0.4",
         "react-scripts": "1.1.4"
     },
     "scripts": {

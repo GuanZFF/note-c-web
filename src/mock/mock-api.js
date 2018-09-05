@@ -39,6 +39,90 @@ export function getRecycleCommodity() {
                 expectSellPrice: '23.5',
                 actualSellPrice: '23.5',
                 remark: '王牌电视，质量有保证，并且画质清晰，屏幕27寸',
+            }, {
+                id: 3,
+                collectorId: 1,
+                villageId: 1,
+                commodityNo: 'SP0010010001',
+                commodityName: '电视机',
+                commodityPictureUrl: 'https://zfguan.oss-cn-beijing.aliyuncs.com/tt.jpeg',
+                commodityStatus: 1,
+                commodityType: 1,
+                recycleTime: '2018-08-15 13:58:43',
+                recyclePrice: '12.5',
+                expectSellPrice: '23.5',
+                actualSellPrice: '23.5',
+                remark: '王牌电视，质量有保证，并且画质清晰，屏幕27寸',
+            }, {
+                id: 4,
+                collectorId: 2,
+                villageId: 2,
+                commodityNo: 'SP0010010001',
+                commodityName: '液晶电视机27寸',
+                commodityPictureUrl: 'https://zfguan.oss-cn-beijing.aliyuncs.com/img1.jpeg',
+                commodityStatus: 2,
+                commodityType: 2,
+                recycleTime: '2018-08-15 13:58:43',
+                recyclePrice: '12.5',
+                expectSellPrice: '23.5',
+                actualSellPrice: '23.5',
+                remark: '王牌电视，质量有保证，并且画质清晰，屏幕27寸',
+            }, {
+                id: 5,
+                collectorId: 1,
+                villageId: 1,
+                commodityNo: 'SP0010010001',
+                commodityName: '电视机',
+                commodityPictureUrl: 'https://zfguan.oss-cn-beijing.aliyuncs.com/tt.jpeg',
+                commodityStatus: 1,
+                commodityType: 1,
+                recycleTime: '2018-08-15 13:58:43',
+                recyclePrice: '12.5',
+                expectSellPrice: '23.5',
+                actualSellPrice: '23.5',
+                remark: '王牌电视，质量有保证，并且画质清晰，屏幕27寸',
+            }, {
+                id: 6,
+                collectorId: 2,
+                villageId: 2,
+                commodityNo: 'SP0010010001',
+                commodityName: '液晶电视机27寸',
+                commodityPictureUrl: 'https://zfguan.oss-cn-beijing.aliyuncs.com/img1.jpeg',
+                commodityStatus: 2,
+                commodityType: 2,
+                recycleTime: '2018-08-15 13:58:43',
+                recyclePrice: '12.5',
+                expectSellPrice: '23.5',
+                actualSellPrice: '23.5',
+                remark: '王牌电视，质量有保证，并且画质清晰，屏幕27寸',
+            }, {
+                id: 7,
+                collectorId: 1,
+                villageId: 1,
+                commodityNo: 'SP0010010001',
+                commodityName: '电视机',
+                commodityPictureUrl: 'https://zfguan.oss-cn-beijing.aliyuncs.com/tt.jpeg',
+                commodityStatus: 1,
+                commodityType: 1,
+                recycleTime: '2018-08-15 13:58:43',
+                recyclePrice: '12.5',
+                expectSellPrice: '23.5',
+                actualSellPrice: '23.5',
+                remark: '王牌电视，质量有保证，并且画质清晰，屏幕27寸',
+            }, {
+                id: 8,
+                collectorId: 2,
+                villageId: 2,
+                commodityNo: 'SP0010010001',
+                commodityName: '液晶电视机27寸',
+                commodityPictureUrl: 'https://zfguan.oss-cn-beijing.aliyuncs.com/img1.jpeg',
+                commodityStatus: 2,
+                commodityType: 2,
+                recycleTime: '2018-08-15 13:58:43',
+                recyclePrice: '12.5',
+                expectSellPrice: '23.5',
+                actualSellPrice: '23.5',
+                remark: '王牌电视，质量有保证，并且画质清晰，屏幕27寸',
             }]
         }
     });
@@ -51,7 +135,7 @@ export function getRecycleCommodity() {
  * @returns {Promise<{code: number, msg: string, data: {commodityNo: string, commodityName: string, commodityPictureUrl: string, recycleTime: string, expectSellPrice: string}}>}
  */
 export function getCommodityDetail(commodityNo) {
-    return Promise.resolve({
+    const commodityDetail = {
         code: 200,
         msg: '',
         data: {
@@ -60,8 +144,16 @@ export function getCommodityDetail(commodityNo) {
             commodityPictureUrl: 'https://zfguan.oss-cn-beijing.aliyuncs.com/img1.jpeg',
             recycleTime: '2018-08-15 13:58:43',
             expectSellPrice: '23.5',
+            imgUrl: [
+                'http://static.bootcss.com/www/assets/img/opencdn.png',
+                'http://static.bootcss.com/www/assets/img/gulpjs.png',
+                'http://static.bootcss.com/www/assets/img/flat-ui.png',
+            ]
         }
-    });
+    };
+    return new Promise((resolve) => {
+        resolve(commodityDetail);
+    })
 }
 
 /**
@@ -100,4 +192,15 @@ export function getCommodityCollector() {
             }]
         }
     })
+}
+
+
+function sleep(numberMillis) {
+    var now = new Date();
+    var exitTime = now.getTime() + numberMillis;
+    while (true) {
+        now = new Date();
+        if (now.getTime() > exitTime)
+            return;
+    }
 }
