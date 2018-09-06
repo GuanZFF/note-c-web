@@ -1,0 +1,9 @@
+.floatingApp {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #f9f6f9;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}

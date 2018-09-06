@@ -1,10 +1,9 @@
 import React, {Component} from 'react';
 import './CommodityDetail.css';
 import {getUrlParam} from './utils/Url';
-import {getCommodityDetail, getRecycleCommodity} from './mock/mock-api';
-import Silder from './component/Slider';
-import BusinessCard from './component/BusinessCard';
+import {getCommodityDetail} from './mock/mock-api';
 import SliderImg from './component/SliderImg';
+import FloatingWindow from './component/FloatingWindow';
 
 
 class CommodityDetail extends Component {
@@ -52,26 +51,10 @@ class CommodityDetail extends Component {
     }
 
     render() {
-        const images = [
-            'http://static.bootcss.com/www/assets/img/opencdn.png',
-            'http://static.bootcss.com/www/assets/img/gulpjs.png',
-            'http://static.bootcss.com/www/assets/img/flat-ui.png',
-        ]
         return (
             <div className="Detail-App">
-                {/*<div className="Detail-Header">
-                    <img src={this.state.commodityPictureUrl} alt="logo"
-                         className="detail-img-box"
-                         width={document.documentElement.scrollWidth - 20}
-                         height={(document.documentElement.scrollWidth - 20) / 2}/>
-                </div>
-                <div className="Detail-Context">
-                    <h1>{this.state.commodityName}</h1>
-                </div>
-                <Silder images={images} auto={this.state.auto} autoTime={this.state.autoTime}/>
-                <BusinessCard/>
-*/}
                 <SliderImg images={this.state.imgUrl}/>
+                <FloatingWindow/>
             </div>
         );
     }

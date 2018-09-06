@@ -72,10 +72,6 @@ class SliderImg extends Component {
         this.state.images.unshift(nextProps.images[nextProps.images.length - 1]);
     }
 
-    shouldComponentUpdate(nextProps, nextState) {
-        return true;
-    }
-
     // 开启自动轮播设置
     startSlider = (sliderImage) => this.state.sliderHandler = setInterval(() => {
         let newIndex = this.state.index + this.state.moveDirection;
