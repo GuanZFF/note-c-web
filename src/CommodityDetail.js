@@ -59,7 +59,7 @@ class CommodityDetail extends Component {
         ]
         return (
             <div className="Detail-App">
-                <div className="Detail-Header">
+                {/*<div className="Detail-Header">
                     <img src={this.state.commodityPictureUrl} alt="logo"
                          className="detail-img-box"
                          width={document.documentElement.scrollWidth - 20}
@@ -70,7 +70,7 @@ class CommodityDetail extends Component {
                 </div>
                 <Silder images={images} auto={this.state.auto} autoTime={this.state.autoTime}/>
                 <BusinessCard/>
-
+*/}
                 <SliderImg images={this.state.imgUrl}/>
             </div>
         );
