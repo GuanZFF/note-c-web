@@ -3,7 +3,7 @@ import './CommodityDetail.css';
 import {getUrlParam} from './utils/Url';
 import {getCommodityDetail} from './mock/mock-api';
 import SliderImg from './component/SliderImg';
-import FloatingWindow from './component/FloatingWindow';
+
 
 
 class CommodityDetail extends Component {
@@ -45,16 +45,13 @@ class CommodityDetail extends Component {
     };
 
     componentDidMount() {
-        document.body.addEventListener('touchstart', () => {
-            console.log(this)
-        })
+
     }
 
     render() {
         return (
             <div className="Detail-App">
                 <SliderImg images={this.state.imgUrl}/>
-                <FloatingWindow/>
             </div>
         );
     }

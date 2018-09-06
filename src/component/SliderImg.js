@@ -19,6 +19,12 @@ class SliderImg extends Component {
         moveDistanceX: 0,           // 水平华滑动距离
     };
 
+    componentWillMount() {
+        this.setState({
+            containWidth: window.screen.width
+        });
+    }
+
     componentDidMount() {
         const {refs: {sliderApp, sliderImage}} = this;
         sliderImage.style.transition = 'transform .5s';

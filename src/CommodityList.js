@@ -4,6 +4,7 @@ import {getRecycleCommodity} from './mock/mock-api';
 import BusinessCard from './component/BusinessCard';
 import CommodityButton from './component/CommodityButton';
 import LimitedInfiniteScroll from 'react-limited-infinite-scroll';
+import FloatingWindow from './component/FloatingWindow';
 
 /**
  * 商品列表页面
@@ -81,6 +82,8 @@ class CommodityList extends Component {
                         {this.commodityList()}
                     </LimitedInfiniteScroll>
                 }
+                {/*浮动窗口*/}
+                <FloatingWindow/>
             </div>
         );
     }
