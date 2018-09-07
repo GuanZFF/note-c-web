@@ -7,8 +7,17 @@ const appRoot = document.getElementById('root');
 class Popup extends React.Component {
     constructor(props) {
         super(props);
+        this.status = true;
         // Create a div that we'll render the modal into.
         this.el = document.createElement('div');
+    }
+
+    componentWillMount() {
+        appRoot.addEventListener("touchmove", (event) => {
+            if (this.status) {
+                event.preventDefault();
+            }
+        }, false);
     }
 
     componentDidMount() {
@@ -17,6 +26,7 @@ class Popup extends React.Component {
     }
 
     componentWillUnmount() {
+        this.status = false;
         // Remove the element from the DOM when we unmount
         appRoot.removeChild(this.el);
     }

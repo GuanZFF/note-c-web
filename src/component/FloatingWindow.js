@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './FloatingWindow.css';
 import phoneImg from '../image/phone.png';
 import Popup from './Popup';
+import fork from '../image/fork.png';
 
 class FloatingWindow extends Component {
 
@@ -12,10 +13,8 @@ class FloatingWindow extends Component {
             appHeight: 0,
             appStyle: 'floatingApp',
             popup: false,
-            popupShow: false,
         };
         this.handleCLick = this.handleCLick.bind(this);
-        this.cancelPopup = this.cancelPopup.bind(this);
     }
 
     componentWillMount() {
@@ -27,25 +26,25 @@ class FloatingWindow extends Component {
 
     // 父组件的点击事件
     handleCLick() {
-        if (this.state.popupShow) {
-            this.setState({popupShow: false});
-        } else {
-            this.setState({appStyle: 'floatingAppClick', popup: true});
-        }
+        this.setState({appStyle: 'floatingAppClick', popup: true});
     }
 
     // 子组件的点击事件
     cancelPopup() {
-        this.state.appStyle = 'floatingApp';
-        this.state.popup = false;
-        this.state.popupShow = true;
+        this.setState({appStyle: 'floatingApp', popup: false});
     }
 
     // 弹层内容
     popupContext = () => {
         return (
-            <div onClick={this.cancelPopup}>
-                <h1>test</h1>
+            <div className="popupApp">
+                <div className="popupFork">
+                    <img src={fork} alt="fork" className="forkImg" onClick={this.cancelPopup.bind(this)}/>
+                </div>
+                <div className="forkContext">
+                    <p className="phoneNum">18255408516</p>
+                    <button className="phoneButton">拨打</button>
+                </div>
             </div>
         );
     };
@@ -56,8 +55,8 @@ class FloatingWindow extends Component {
             height: this.state.appHeight
         };
         return (
-            <div className={this.state.appStyle} style={appStyle} onClick={this.handleCLick}>
-                <img className="phone" src={phoneImg} alt="phone"/>
+            <div className={this.state.appStyle} style={appStyle}>
+                <img className="phone" src={phoneImg} alt="phone" onClick={this.handleCLick}/>
                 {
                     this.state.popup && <Popup children={this.popupContext()}/>
                 }

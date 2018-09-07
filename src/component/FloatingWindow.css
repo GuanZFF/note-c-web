@@ -22,3 +22,38 @@
     border: 9px #4b4b49 solid;
     transition: bottom .5s;
 }
+
+/*弹窗设置*/
+.popupApp {
+
+}
+
+.popupFork {
+    width: 20px;
+    height: 20px;
+    position: relative;
+    left: 230px;
+}
+
+.forkImg {
+    width: 100%;
+    height: 100%;
+}
+
+.forkContext {
+    text-align: center;
+    margin: 0 10px;
+}
+
+.phoneNum {
+    margin-top: 5px;
+}
+
+.phoneButton {
+    width: 80%;
+    height: 40px;
+    margin-bottom: 10px;
+    background-color: #2670b8;
+    border-radius: 7px;
+    font-size: 20px;
+}
