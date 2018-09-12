@@ -1,16 +1,67 @@
-.Detail-App {
+.DetailApp {
     text-align: center;
 }
 
-.Detail-Header {
-    margin: 0 10px;
+.DetailHeader {
 }
 
-.Detail-Context {
-    margin: 5px 10px 5px 10px;
+.DetailContextFirst {
     background-color: #f9f6f9;
-    border-radius: 2px;
+    padding: 10px 0 10px 20px;
+    margin-top: -5px;
+    margin-bottom: 5px;
+    border-bottom: 1px rgba(135, 135, 142, 0.6) solid;
+    border-top: 1px rgba(135, 135, 142, 0.6) solid;
+}
+
+.commodityNameDiv {
+    text-align: left;
+}
+
+.commodityName {
+    margin: 0;
+}
+
+.commodityPrice {
+    margin: 0;
+    color: red;
+    font-size: 24px;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-color: rgba(135,135,142,0.27);
+    margin: 0;
+}
+
+.DetailContextSecond {
+    background-color: #f9f6f9;
+    padding: 0 0 0 20px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    border-top: 1px rgba(135, 135, 142, 0.6) solid;
+    border-bottom: 1px rgba(135, 135, 142, 0.6) solid;
+}
+
+.DetailContextThird {
+    background-color: #f9f6f9;
+    padding: 10px 0 10px 20px;
+    margin-bottom: 5px;
+    border-bottom: 1px rgba(135, 135, 142, 0.6) solid;
+    border-top: 1px rgba(135, 135, 142, 0.6) solid;
+}
+
+.iconRight {
+    height: 20px;
+    width: 20px;
+    padding: 1px;
+    float: right;
 }
 
 .detail-img-box {
+}
+
+.ContextButton {
+    margin: 0;
 }

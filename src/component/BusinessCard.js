@@ -19,7 +19,7 @@ class BusinessCard extends Component {
         return (
             <header className="App-header">
                 <div className="BusinessCardApp" onClick={() => this.cardClick()}>
-                    <h1>我的名片</h1>
+                    <p>rer</p>
                 </div>
             </header>
         );

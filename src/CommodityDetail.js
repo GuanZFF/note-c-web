@@ -3,7 +3,8 @@ import './CommodityDetail.css';
 import {getUrlParam} from './utils/Url';
 import {getCommodityDetail} from './mock/mock-api';
 import SliderImg from './component/SliderImg';
-
+import Button from './component/Button';
+import ArrowRight from './component/ArrowRight';
 
 
 class CommodityDetail extends Component {
@@ -50,8 +51,29 @@ class CommodityDetail extends Component {
 
     render() {
         return (
-            <div className="Detail-App">
-                <SliderImg images={this.state.imgUrl}/>
+            <div className="DetailApp">
+                <div className="DetailHeader">
+                    <SliderImg images={this.state.imgUrl}/>
+                </div>
+                <div className="DetailContextFirst">
+                    <div className="commodityNameDiv">
+                        <p className="commodityName">{this.state.commodityName}</p>
+                        <p className="commodityPrice">{this.state.expectSellPrice} 元</p>
+                    </div>
+                    <hr/>
+                    <h1>推文设计</h1>
+                </div>
+                <div className="DetailContextSecond">
+                    <ArrowRight title="姓名" content="关振锋"/>
+                    <hr/>
+                    <ArrowRight title="手机号" content="18255408516" showArrow="true"/>
+                    <hr/>
+                    <ArrowRight title="微信号" content="buft8497134" showArrow="true"/>
+                </div>
+                <div className="DetailContextThird">
+                    <Button name="test"/>
+                    <h1>卖家信息设计</h1>
+                </div>
             </div>
         );
     }

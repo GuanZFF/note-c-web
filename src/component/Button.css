@@ -1,0 +1,17 @@
+.ButtonDiv {
+    padding: 2px;
+}
+
+.ButtonA {
+    background-color: #108ee9;
+    padding: 8px 12px;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 20px;
+    transition: all 2ms;
+    display: block;
+}
+
+.ButtonSpan {
+
+}

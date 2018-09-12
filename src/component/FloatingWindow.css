@@ -3,7 +3,7 @@
     position: fixed;
     bottom: 30px;
     right: 20px;
-    background-color: #bfbfbf;
+    background-color: rgba(135, 135, 142, 0.6);
     border: 9px #4b4b49 solid;
     transition: bottom .5s;
 }
@@ -18,7 +18,7 @@
     position: fixed;
     bottom: -100px;
     right: 20px;
-    background-color: #bfbfbf;
+    background-color: rgba(135, 135, 142, 0.6);
     border: 9px #4b4b49 solid;
     transition: bottom .5s;
 }
@@ -28,14 +28,30 @@
 
 }
 
-.popupFork {
-    width: 20px;
-    height: 20px;
-    position: relative;
-    left: 230px;
+.empty {
+    width: 45px;
+    height: 45px;
+    float: left;
 }
 
-.forkImg {
+.title {
+    width: 160px;
+    height: 45px;
+    text-align: center;
+    float: left;
+}
+
+.popupClose {
+    width: 45px;
+    height: 45px;
+    float: left;
+}
+
+h4 {
+    margin-top: 12px;
+}
+
+.iconClose {
     width: 100%;
     height: 100%;
 }
@@ -46,14 +62,9 @@
 }
 
 .phoneNum {
-    margin-top: 5px;
+    margin-top: 0px;
 }
 
-.phoneButton {
-    width: 80%;
-    height: 40px;
+.popupButton {
     margin-bottom: 10px;
-    background-color: #2670b8;
-    border-radius: 7px;
-    font-size: 20px;
 }

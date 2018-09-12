@@ -1,0 +1,30 @@
+.arrowRight {
+    padding: 13px 10px 13px 0;
+    /*border: 1px blue solid;*/
+}
+
+.arrowRightTitle {
+    /*border: 1px red solid;*/
+    display: inline-block;
+    float: left;
+}
+.arrowRightContent {
+    height: 22px;
+    float: right;
+    color: rgba(101, 101, 105, 0.47);
+}
+
+.arrowRightImgDiv {
+    /*border: 1px purple solid;*/
+    height: 22px;
+    float: right;
+}
+
+.clear {
+    clear: both;
+}
+
+.arrowRightImg {
+    height: 14px;
+    margin: 4px 0 4px 12px;
+}

@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import './FloatingWindow.css';
 import phoneImg from '../image/phone.png';
 import Popup from './Popup';
-import fork from '../image/fork.png';
+import iconClose from '../image/icon-close1.png';
+import Button from './Button';
 
 class FloatingWindow extends Component {
 
@@ -38,12 +39,20 @@ class FloatingWindow extends Component {
     popupContext = () => {
         return (
             <div className="popupApp">
-                <div className="popupFork">
-                    <img src={fork} alt="fork" className="forkImg" onClick={this.cancelPopup.bind(this)}/>
+                <div className="empty">
+
+                </div>
+                <div className="title">
+                    <h4>联系人电话</h4>
+                </div>
+                <div className="popupClose">
+                    <img src={iconClose} alt="fork" className="iconClose" onClick={this.cancelPopup.bind(this)}/>
                 </div>
                 <div className="forkContext">
                     <p className="phoneNum">18255408516</p>
-                    <button className="phoneButton">拨打</button>
+                    <div className="popupButton">
+                        <Button name="拨打"/>
+                    </div>
                 </div>
             </div>
         );
