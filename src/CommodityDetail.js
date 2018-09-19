@@ -15,7 +15,7 @@ class CommodityDetail extends Component {
         this.state = {
             commodityNo: '',
             commodityName: '',
-            commodityPictureUrl: '',
+            commodityPicture: '',
             recycleTime: '',
             expectSellPrice: '',
             imgUrl: [],
@@ -34,7 +34,7 @@ class CommodityDetail extends Component {
                 this.setState({
                     commodityNo: res.data.commodityNo,
                     commodityName: res.data.commodityName,
-                    commodityPictureUrl: res.data.commodityPictureUrl,
+                    commodityPicture: res.data.commodityPicture,
                     recycleTime: res.data.recycleTime,
                     expectSellPrice: res.data.expectSellPrice,
                     imgUrl: res.data.imgUrl,

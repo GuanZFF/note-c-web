@@ -15,7 +15,7 @@ class CommodityList extends Component {
         this.state = {
             pageNo: 1,             // 当前页
             pageSize: 10,          // 页大小
-            totalPage: 5,          // 总页数
+            hasNextPage: false,    // 是否还有下一页
             list: [],              // 订单列表
         };
         this.loadNextPage = this.loadNextPage.bind(this);
@@ -39,7 +39,7 @@ class CommodityList extends Component {
                 <CommodityButton
                     key={index}
                     commodityNo={item.commodityNo}
-                    imgUrl={item.commodityPictureUrl}
+                    imgUrl={item.commodityPicture}
                     name={item.commodityName}
                     price={item.expectSellPrice}
                     remark={item.remark}/>
@@ -51,11 +51,11 @@ class CommodityList extends Component {
      * 分页加载列表
      */
     loadNextPage = () => {
-        getRecycleCommodity()
+        getRecycleCommodity(this.state.pageNo)
             .then(res => {
                 this.setState({
                     pageNo: this.state.pageNo + 1,
-                    totalPage: this.state.totalPage,
+                    hasNextPage: res.data.hasNextPage,
                     list: this.state.list.concat(res.data.list)
                 });
             })
@@ -74,7 +74,7 @@ class CommodityList extends Component {
                     <LimitedInfiniteScroll
                         limit={Infinity}
                         autoLoad={false}
-                        hasMore={this.state.pageNo <= this.state.totalPage}
+                        hasMore={this.state.hasNextPage}
                         spinLoader={<div className="loader">加载中...</div>}
                         mannualLoader={<div className="loader">加载更多</div>}
                         noMore={<div className="loader">没有更多商品啦~</div>}

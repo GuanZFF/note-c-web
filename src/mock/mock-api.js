@@ -1,3 +1,4 @@
+import http from '../component/http';
 /**
  * 获取回收的商品列表信息
  *
@@ -17,7 +18,7 @@ export function getRecycleCommodity() {
                 villageId: 1,
                 commodityNo: 'SP0010010001',
                 commodityName: '电视机',
-                commodityPictureUrl: 'https://zfguan.oss-cn-beijing.aliyuncs.com/tt.jpeg',
+                commodityPicture: 'https://zfguan.oss-cn-beijing.aliyuncs.com/tt.jpeg',
                 commodityStatus: 1,
                 commodityType: 1,
                 recycleTime: '2018-08-15 13:58:43',
@@ -31,7 +32,7 @@ export function getRecycleCommodity() {
                 villageId: 2,
                 commodityNo: 'SP0010010001',
                 commodityName: '液晶电视机27寸',
-                commodityPictureUrl: 'https://zfguan.oss-cn-beijing.aliyuncs.com/img1.jpeg',
+                commodityPicture: 'https://zfguan.oss-cn-beijing.aliyuncs.com/img1.jpeg',
                 commodityStatus: 2,
                 commodityType: 2,
                 recycleTime: '2018-08-15 13:58:43',
@@ -45,7 +46,7 @@ export function getRecycleCommodity() {
                 villageId: 1,
                 commodityNo: 'SP0010010001',
                 commodityName: '电视机',
-                commodityPictureUrl: 'https://zfguan.oss-cn-beijing.aliyuncs.com/tt.jpeg',
+                commodityPicture: 'https://zfguan.oss-cn-beijing.aliyuncs.com/tt.jpeg',
                 commodityStatus: 1,
                 commodityType: 1,
                 recycleTime: '2018-08-15 13:58:43',
@@ -59,7 +60,7 @@ export function getRecycleCommodity() {
                 villageId: 2,
                 commodityNo: 'SP0010010001',
                 commodityName: '液晶电视机27寸',
-                commodityPictureUrl: 'https://zfguan.oss-cn-beijing.aliyuncs.com/img1.jpeg',
+                commodityPicture: 'https://zfguan.oss-cn-beijing.aliyuncs.com/img1.jpeg',
                 commodityStatus: 2,
                 commodityType: 2,
                 recycleTime: '2018-08-15 13:58:43',
@@ -73,7 +74,7 @@ export function getRecycleCommodity() {
                 villageId: 1,
                 commodityNo: 'SP0010010001',
                 commodityName: '电视机',
-                commodityPictureUrl: 'https://zfguan.oss-cn-beijing.aliyuncs.com/tt.jpeg',
+                commodityPicture: 'https://zfguan.oss-cn-beijing.aliyuncs.com/tt.jpeg',
                 commodityStatus: 1,
                 commodityType: 1,
                 recycleTime: '2018-08-15 13:58:43',
@@ -87,7 +88,7 @@ export function getRecycleCommodity() {
                 villageId: 2,
                 commodityNo: 'SP0010010001',
                 commodityName: '液晶电视机27寸',
-                commodityPictureUrl: 'https://zfguan.oss-cn-beijing.aliyuncs.com/img1.jpeg',
+                commodityPicture: 'https://zfguan.oss-cn-beijing.aliyuncs.com/img1.jpeg',
                 commodityStatus: 2,
                 commodityType: 2,
                 recycleTime: '2018-08-15 13:58:43',
@@ -101,7 +102,7 @@ export function getRecycleCommodity() {
                 villageId: 1,
                 commodityNo: 'SP0010010001',
                 commodityName: '电视机',
-                commodityPictureUrl: 'https://zfguan.oss-cn-beijing.aliyuncs.com/tt.jpeg',
+                commodityPicture: 'https://zfguan.oss-cn-beijing.aliyuncs.com/tt.jpeg',
                 commodityStatus: 1,
                 commodityType: 1,
                 recycleTime: '2018-08-15 13:58:43',
@@ -115,7 +116,7 @@ export function getRecycleCommodity() {
                 villageId: 2,
                 commodityNo: 'SP0010010001',
                 commodityName: '液晶电视机27寸',
-                commodityPictureUrl: 'https://zfguan.oss-cn-beijing.aliyuncs.com/img1.jpeg',
+                commodityPicture: 'https://zfguan.oss-cn-beijing.aliyuncs.com/img1.jpeg',
                 commodityStatus: 2,
                 commodityType: 2,
                 recycleTime: '2018-08-15 13:58:43',
@@ -132,7 +133,7 @@ export function getRecycleCommodity() {
  * 商品详情数据
  *
  * @param commodityNo 商品编号
- * @returns {Promise<{code: number, msg: string, data: {commodityNo: string, commodityName: string, commodityPictureUrl: string, recycleTime: string, expectSellPrice: string}}>}
+ * @returns {Promise<{code: number, msg: string, data: {commodityNo: string, commodityName: string, commodityPicture: string, recycleTime: string, expectSellPrice: string}}>}
  */
 export function getCommodityDetail(commodityNo) {
     const commodityDetail = {
@@ -141,7 +142,7 @@ export function getCommodityDetail(commodityNo) {
         data: {
             commodityNo: 'SP0010010001',
             commodityName: '液晶电视机27寸',
-            commodityPictureUrl: 'https://zfguan.oss-cn-beijing.aliyuncs.com/img1.jpeg',
+            commodityPicture: 'https://zfguan.oss-cn-beijing.aliyuncs.com/img1.jpeg',
             recycleTime: '2018-08-15 13:58:43',
             expectSellPrice: '23.5',
             imgUrl: [
