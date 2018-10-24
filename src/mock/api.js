@@ -44,17 +44,32 @@ export function getCollectorDetail(collectorNo) {
         code: 200,
         msg: '',
         data: {
-            id: 1,
-            collectorNo: 'FPHS0010001',
-            status: 1,
-            statusDesc: '存在',
-            username: 'zhenfeng.guan',
-            phone: '18255408516',
-            wechatNo: '123232',
-            sex: 1,
-            sexDesc: '男',
-            address: '安徽省阜阳市太和县坟台镇双中乡前冯自然村关楼100号',
-            avatar: ''
+            count: 100,
+            hasNextPage: 1,
+            pageNum: 1,
+            list: [{
+                id: 1,
+                collectorNo: 'FPHS0010001',
+                status: 1,
+                statusDesc: '存在',
+                username: 'test',
+                phone: '12345678900',
+                sex: 1,
+                sexDesc: '男',
+                address: 'test',
+                avatar: ''
+            }, {
+                id: 2,
+                collectorNo: 'FPHS0010001',
+                status: 2,
+                statusDesc: '不存在',
+                username: 'test.test',
+                phone: '12345678900',
+                sex: 2,
+                sexDesc: '女',
+                address: 'test',
+                avatar: ''
+            }]
         }
     })
 }
