@@ -1,4 +1,3 @@
-import http from '../component/http';
 /**
  * 获取回收的商品列表信息
  *

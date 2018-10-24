@@ -1,10 +1,12 @@
 import React, {Component} from 'react';
 import './BusinessCard.css';
+import {getRecycleCollector} from '../mock/api';
 
 class BusinessCard extends Component {
     constructor(props) {
         super(props);
         this.state = {};
+        console.log(this.props.collectorNo);
         this.cardClick = this.cardClick.bind(this);
     }
 
@@ -13,17 +15,21 @@ class BusinessCard extends Component {
      */
     cardClick = () => {
         console.log("123");
+        this.getCollector();
+    };
+
+    getCollector = () => {
+        getRecycleCollector(this.props.collectorNo).then(res => {
+            console.log(res);
+        }).catch(err => {
+            console.log(err);
+        })
     };
 
     render() {
         return (
             <header className="App-header">
                 <div className="BusinessCardApp" onClick={() => this.cardClick()}>
-                    <hr/>
-                    <p>姓名：关振锋</p>
-                    <hr/>
-                    <p>主收：冰箱、洗衣机、空调、电视机等</p>
-                    <hr/>
                 </div>
             </header>
         );

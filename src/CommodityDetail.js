@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
 import './CommodityDetail.css';
 import {getUrlParam} from './utils/Url';
-import {getCommodityDetail} from './mock/mock-api';
+import {getCommodityDetail, getCollectorDetail} from './mock/api';
 import SliderImg from './component/SliderImg';
-import Button from './component/Button';
 import ArrowRight from './component/ArrowRight';
 
 
@@ -21,6 +20,9 @@ class CommodityDetail extends Component {
             imgUrl: [],
             auto: true,
             autoTime: 2000,
+            contactName: '',
+            contactPhone: '',
+            wechatNo: ''
         };
     }
 
@@ -39,10 +41,25 @@ class CommodityDetail extends Component {
                     expectSellPrice: res.data.expectSellPrice,
                     imgUrl: res.data.imgUrl,
                 });
+                this.initCollectorDetail(res.data.collectorNo);
             })
             .catch(err => {
                 console.log(err);
             });
+    };
+
+    initCollectorDetail = (collectorNo) => {
+        getCollectorDetail(collectorNo)
+            .then(res => {
+                this.setState({
+                    contactName: res.data.username,
+                    contactPhone: res.data.phone,
+                    wechatNo: res.data.wechatNo
+                });
+            })
+            .catch(err => {
+                console.log(err);
+            })
     };
 
     componentDidMount() {
@@ -64,14 +81,13 @@ class CommodityDetail extends Component {
                     <h1>推文设计</h1>
                 </div>
                 <div className="DetailContextSecond">
-                    <ArrowRight title="姓名" content="关振锋"/>
+                    <ArrowRight title="姓名" content={this.state.contactName}/>
                     <hr/>
-                    <ArrowRight title="手机号" content="18255408516" showArrow="true"/>
+                    <ArrowRight title="手机号" content={this.state.contactPhone} showArrow="true"/>
                     <hr/>
-                    <ArrowRight title="微信号" content="buft8497134" showArrow="true"/>
+                    <ArrowRight title="微信号" content={this.state.wechatNo} showArrow="true"/>
                 </div>
                 <div className="DetailContextThird">
-                    <Button name="test"/>
                     <h1>卖家信息设计</h1>
                 </div>
             </div>

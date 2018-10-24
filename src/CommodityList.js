@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 import './CommodityList.css';
-import {getRecycleCommodity} from './mock/mock-api';
+import {getRecycleCommodity} from './mock/api';
 import BusinessCard from './component/BusinessCard';
 import CommodityButton from './component/CommodityButton';
 import LimitedInfiniteScroll from 'react-limited-infinite-scroll';
 import FloatingWindow from './component/FloatingWindow';
+import {getUrlParam} from "./utils/Url";
 
 /**
  * 商品列表页面
@@ -12,11 +13,15 @@ import FloatingWindow from './component/FloatingWindow';
 class CommodityList extends Component {
     constructor(props) {
         super(props);
+        const collectorNo = getUrlParam('collectorNo');
         this.state = {
-            pageNo: 1,             // 当前页
-            pageSize: 10,          // 页大小
-            hasNextPage: false,    // 是否还有下一页
-            list: [],              // 订单列表
+            pageNo: 1,                  // 当前页
+            pageSize: 10,               // 页大小
+            hasNextPage: false,         // 是否还有下一页
+            list: [],                   // 订单列表
+            showHeader: !!collectorNo,  // 是否展示商品头
+            showFloating: true,         // 是否展示商品尾
+            collectorNo: collectorNo,   // 收集人编号
         };
         this.loadNextPage = this.loadNextPage.bind(this);
     }
@@ -26,6 +31,7 @@ class CommodityList extends Component {
      */
     componentWillMount() {
         this.loadNextPage();
+        console.log(this.state);
     }
 
     /**
@@ -67,8 +73,10 @@ class CommodityList extends Component {
     render() {
         return (
             <div className="App">
-                {/*商品列表头部卡片*/}
-                <BusinessCard/>
+                {
+                    // 商品列表头部卡片
+                    this.state.showHeader && <BusinessCard collectorNo={this.state.collectorNo}/>
+                }
                 {
                     // 商品列表设置
                     <LimitedInfiniteScroll
@@ -82,8 +90,10 @@ class CommodityList extends Component {
                         {this.commodityList()}
                     </LimitedInfiniteScroll>
                 }
-                {/*浮动窗口*/}
-                <FloatingWindow/>
+                {
+                    // 浮动窗口
+                    this.state.showFloating && <FloatingWindow/>
+                }
             </div>
         );
     }
