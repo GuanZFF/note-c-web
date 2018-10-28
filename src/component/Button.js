@@ -1,28 +1,39 @@
 import React, {Component} from 'react';
 import './Button.css';
 
-class Button extends Component{
+class Button extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            buttonName: 'ButtonA'
+        };
     }
 
     componentDidMount() {
-        const {ButtonA} = this.refs;
+        const {ButtonA, ButtonB} = this.refs;
 
-        ButtonA.addEventListener('touchstart',() => {
+        !!ButtonA && ButtonA.addEventListener('touchstart', () => {
             ButtonA.style.backgroundColor = '#0e80d2';
             ButtonA.style.color = 'rgba(255, 255, 255, 0.3)';
         });
-        ButtonA.addEventListener('touchend',() => {
+        !!ButtonA && ButtonA.addEventListener('touchend', () => {
             ButtonA.style.backgroundColor = '#108ee9';
             ButtonA.style.color = '#fff';
+        });
+
+        !!ButtonB && ButtonB.addEventListener('touchstart', () => {
+            ButtonB.style.borderColor = '#0e80d2';
+        });
+        !!ButtonB && ButtonB.addEventListener('touchend', () => {
+            ButtonB.style.borderColor = '#4b4b49';
         });
     }
 
     render() {
+        const buttonName = !this.props.buttonName ? this.state.buttonName : this.props.buttonName;
         return (
-            <div className="ButtonDiv">
-                <a className="ButtonA" ref="ButtonA">
+            <div className="ButtonDiv" onClick={this.props.callback}>
+                <a className={buttonName} ref={buttonName}>
                     <span className="ButtonSpan">{this.props.name}</span>
                 </a>
             </div>

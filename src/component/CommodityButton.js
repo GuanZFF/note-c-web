@@ -1,6 +1,7 @@
 import './CommodityButton.css';
 import React, {Component} from 'react';
 import DefaultImg from '../image/defaultImg.jpg';
+import Button from "./Button";
 
 /**
  * 商品详情列表卡片
@@ -32,6 +33,9 @@ class CommodityButton extends Component {
                     <p className="CommodityTitle">{name}</p>
                     <p className="CommodityPrice">{price}元</p>
                     <p className="CommodityRemark">{remark}</p>
+                </div>
+                <div className="commodityTag">
+                    <Button name="5成新" buttonName="ButtonTag" callback={() => console.log(123)}/>
                 </div>
             </div>
         );

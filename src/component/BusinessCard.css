@@ -1,6 +1,5 @@
 .App-header {
-    background-color: #222;
-    padding: 15px;
+    padding: 1px;
 }
 
 .BusinessCardApp {
@@ -8,4 +7,80 @@
     border-radius: 3px;
     box-shadow: 3px 4px 20px 2px #777777;
     padding: 10px;
+}
+
+.BusinessCardHeader {
+    height: 30px;
+    /*border: 1px red solid;*/
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.IconUser {
+    height: 100%;
+    float: right;
+}
+
+.BusinessCardHeaderTitle {
+    height: 100%;
+    /*border: 1px red solid;*/
+    float: left;
+    padding: 0 5px;
+    line-height: 30px;
+}
+
+.BusinessCardHeaderImg {
+    height: 100%;
+    /*border: 1px blue solid;*/
+    float: right;
+}
+
+.BusinessCardHeaderTitle-title {
+    margin: 0;
+    text-align: left;
+}
+
+.BusinessCardContextNote {
+    color: #a7191e;
+    margin: 10px 0 6px 0;
+}
+
+.ContactInfo {
+    margin: 10px 0;
+    /*border: 1px blue solid;*/
+}
+
+.ContactInfoImgDiv {
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    overflow: hidden;
+    float: left;
+    /*border: 1px red solid;*/
+    margin-left: 10px;
+}
+
+.ContactInfoImg {
+    width: 100%;
+    height: 100%;
+}
+
+.ContactInfoThem {
+    /*border: 1px yellow solid;*/
+    float: left;
+    line-height: 30px;
+    margin-left: 10px;
+    text-align: left;
+}
+
+.ContactInfoTag {
+    float: right;
+    margin-right: 1px;
+}
+
+.ContactInfoEnd {
+    text-align: left;
+    overflow: hidden;
+    margin: 3px 15px;
+    color: #75757b;
 }

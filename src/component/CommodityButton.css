@@ -4,6 +4,7 @@
     margin: 8px 10px;
     display: flex;
     padding: 12px;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .CommodityHeader {
