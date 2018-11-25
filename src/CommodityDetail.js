@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './CommodityDetail.css';
 import {getUrlParam} from './utils/Url';
-import {getCommodityDetail, getCollectorDetail} from './mock/api';
+import {getCommodityDetail, getCollectorDetail} from './mock/mock-api';
 import SliderImg from './component/SliderImg';
 import ArrowRight from './component/ArrowRight';
 

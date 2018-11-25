@@ -1,0 +1,15 @@
+.OrderList {
+    text-align: left;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.MyOrderList {
+}
+
+.MyOrderListHeader {
+    margin: 12px 17px;
+}
+
+.loader {
+    margin-bottom: 15px;
+}

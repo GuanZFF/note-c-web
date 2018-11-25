@@ -145,9 +145,9 @@ export function getCommodityDetail(commodityNo) {
             recycleTime: '2018-08-15 13:58:43',
             expectSellPrice: '23.5',
             imgUrl: [
-                'http://static.bootcss.com/www/assets/img/opencdn.png',
-                'http://static.bootcss.com/www/assets/img/gulpjs.png',
-                'http://static.bootcss.com/www/assets/img/flat-ui.png',
+                'https://recycle-thing.oss-cn-hangzhou.aliyuncs.com/RCI1538314414865LF.jpeg',
+                'https://recycle-thing.oss-cn-hangzhou.aliyuncs.com/RCI1540226780829YX.jpeg',
+                'https://recycle-thing.oss-cn-hangzhou.aliyuncs.com/RCI1538312157273BT.jpeg',
             ]
         }
     };
@@ -194,6 +194,75 @@ export function getCommodityCollector() {
     })
 }
 
+export function orderList(openId) {
+    console.log(openId);
+    return Promise.resolve({
+        code: 200,
+        msg: '',
+        data: {
+            count: 100,
+            hasNextPage: true,
+            pageNum: 1,
+            list: [{
+                id: 1,
+                orderNo: 'FPHS0010001',
+                commodityNo: 'FPHS0010001',
+                commodityName: '电视机',
+                commodityPicture: 'https://zfguan.oss-cn-beijing.aliyuncs.com/tt.jpeg',
+                orderTime: '2018-08-15 13:58:43',
+                stateDesc: '订单未完成',
+                state: 1
+            }, {
+                id: 2,
+                orderNo: 'FPHS0010001',
+                commodityNo: 'FPHS0010001',
+                commodityName: '电视机',
+                commodityPicture: 'https://zfguan.oss-cn-beijing.aliyuncs.com/img1.jpeg',
+                orderTime: '2018-08-15 13:58:43',
+                stateDesc: '订单完成',
+                state: 2
+            }]
+        }
+    })
+}
+
+/**
+ * 获取商品收集人信息列表
+ */
+export function getCollectorDetail(collectorNo) {
+    return Promise.resolve({
+        code: 200,
+        msg: '',
+        data: {
+            count: 100,
+            hasNextPage: 1,
+            pageNum: 1,
+            list: [{
+                id: 1,
+                collectorNo: 'FPHS0010001',
+                status: 1,
+                statusDesc: '存在',
+                username: 'test',
+                phone: '12345678900',
+                sex: 1,
+                sexDesc: '男',
+                address: 'test',
+                avatar: ''
+            }, {
+                id: 2,
+                collectorNo: 'FPHS0010001',
+                status: 2,
+                statusDesc: '不存在',
+                username: 'test.test',
+                phone: '12345678900',
+                sex: 2,
+                sexDesc: '女',
+                address: 'test',
+                avatar: ''
+            }]
+        }
+    })
+}
 
 function sleep(numberMillis) {
     var now = new Date();

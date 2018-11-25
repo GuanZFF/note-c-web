@@ -1,0 +1,21 @@
+.Input {
+}
+
+.InputContext {
+    border: 1px solid #dcdfe6;
+    color: #606266;
+    padding: 0 15px;
+    border-radius: 4px;
+    height: 40px;
+    width: -webkit-fill-available;
+    margin: 10px 2px;
+    outline: none;
+    transition: border-color .2s cubic-bezier(.645, .045, .355, 1);
+    -webkit-tap-highlight-color: transparent;
+    -webkit-appearance: none;
+}
+
+.InputContext:focus {
+    border-color: #409eff;
+    outline: none;
+}

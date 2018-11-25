@@ -9,15 +9,15 @@ class BusinessCard extends Component {
     constructor(props) {
         super(props);
         this.state = {};
-        console.log(this.props.collectorNo);
         this.cardClick = this.cardClick.bind(this);
+        this.myOrderList = this.myOrderList.bind(this);
     }
 
     /**
      * 卡片的点击事件
      */
     cardClick = () => {
-        console.log("123");
+        window.location.href = '/subscribeOrder';
     };
 
     getCollector = () => {
@@ -28,6 +28,13 @@ class BusinessCard extends Component {
         })
     };
 
+    /**
+     * 我的订单列表
+     */
+    myOrderList = () => {
+        window.location.href = `orderList`;
+    };
+
     render() {
         return (
             <header className="App-header">
@@ -36,7 +43,7 @@ class BusinessCard extends Component {
                         <div className="BusinessCardHeaderTitle">
                             <h3 className="BusinessCardHeaderTitle-title">商品回收平台</h3>
                         </div>
-                        <div className="BusinessCardHeaderImg">
+                        <div className="BusinessCardHeaderImg" onClick={this.myOrderList}>
                             <img src={IconUser} className="IconUser"/>
                         </div>
                     </div>
@@ -51,7 +58,7 @@ class BusinessCard extends Component {
                             18255408516
                         </div>
                         <div className="ContactInfoTag">
-                            <Button name="回收人信息" buttonName="ButtonTag" callback={() => this.cardClick()}/>
+                            <Button name="回收人信息" buttonName="ButtonTag"/>
                         </div>
                         <div className="clear"/>
                         <div className="ContactInfoEnd">

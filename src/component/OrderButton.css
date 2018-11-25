@@ -1,0 +1,22 @@
+.OrderButton {
+    border-radius: 3px;
+    background-color: #f9f6f9;
+    margin: 8px 10px;
+    display: flex;
+    padding: 12px;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.OrderButtonHeader {
+    width: 100px;
+    height: 95px;
+    border-radius: 3px;
+    margin-right: 8px;
+}
+
+.OrderButtonContext {
+    border-radius: 3px;
+    width: 100px;
+    flex: 1;
+    text-align: left;
+}

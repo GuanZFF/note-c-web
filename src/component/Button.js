@@ -7,6 +7,7 @@ class Button extends Component {
         this.state = {
             buttonName: 'ButtonA'
         };
+        this.defaultCallback = this.defaultCallback.bind(this);
     }
 
     componentDidMount() {
@@ -29,10 +30,12 @@ class Button extends Component {
         });
     }
 
+    defaultCallback = () => {};
+
     render() {
         const buttonName = !this.props.buttonName ? this.state.buttonName : this.props.buttonName;
         return (
-            <div className="ButtonDiv" onClick={this.props.callback}>
+            <div className="ButtonDiv" onClick={this.props.callback || this.defaultCallback}>
                 <a className={buttonName} ref={buttonName}>
                     <span className="ButtonSpan">{this.props.name}</span>
                 </a>

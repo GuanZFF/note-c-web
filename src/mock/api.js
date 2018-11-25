@@ -1,7 +1,7 @@
 import http from '../component/http';
 
 // const basePath = 'http://www.gzhenfeng.cn:8093';
-const basePath = 'http://localhost:8083';
+const basePath = 'http://localhost:8082';
 
 /**
  * 获取回收的商品列表信息
@@ -13,7 +13,7 @@ export function getRecycleCommodity(pageNum, pageSize = 10) {
         'pageNum': pageNum,
         'pageSize': pageSize
     };
-    return http.get(`${basePath}/web/commodity/getRecycleCommodityPage`, data);
+    return http.get(`${basePath}/commodity/getRecycleCommodityPage`, data);
 }
 
 /**
@@ -26,14 +26,14 @@ export function getCommodityDetail(commodityNo) {
     const data = {
         'commodityNo': commodityNo
     };
-    return http.get(`${basePath}/web/commodity/getRecycleCommodity`, data);
+    return http.get(`${basePath}/commodity/getRecycleCommodity`, data);
 }
 
 export function getRecycleCollector(collectorNo) {
     const data = {
         'collectorNo': collectorNo
     };
-    return http.get(`${basePath}/web/collector/getRecycleCollector`, data);
+    return http.get(`${basePath}/collector/getRecycleCollector`, data);
 }
 
 /**

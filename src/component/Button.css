@@ -37,7 +37,15 @@
 }
 
 .RedButtonTag {
-    border: 1px #940000 solid;
+    border: 1px red solid;
+    padding: 0 8px;
+    border-radius: 100px;
+    font-size: 10px;
+    display: block;
+}
+
+.BlueButtonTag {
+    border: 1px blue solid;
     padding: 0 8px;
     border-radius: 100px;
     font-size: 10px;

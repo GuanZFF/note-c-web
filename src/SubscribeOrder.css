@@ -1,0 +1,19 @@
+.SubscribeOrder {
+    text-align: center;
+    background-color: #f9f6f9;
+    margin: 8px 10px;
+    padding: 12px;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.SubscribeOrderHeader {
+    text-align: left;
+}
+
+.SubscribeOrderH {
+    margin: 5px 0 12px 8px;
+}
+
+.OrderButtonTag {
+    margin-top: 10px;
+}
