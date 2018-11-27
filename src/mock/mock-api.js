@@ -1,3 +1,5 @@
+import http from "../component/http";
+
 /**
  * 获取回收的商品列表信息
  *
@@ -222,6 +224,53 @@ export function orderList(openId) {
                 stateDesc: '订单完成',
                 state: 2
             }]
+        }
+    })
+}
+
+/**
+ * 通过收集人编号获取收集人信息
+ */
+export function getRecycleCollector(collectorNo) {
+    const data = {
+        'collectorNo': collectorNo
+    };
+    console.log(data);
+    return Promise.resolve({
+        code: 200,
+        msg: '',
+        data: {
+            id: 1,
+            collectorNo: 'FPHS0010001',
+            status: 1,
+            statusDesc: '存在',
+            username: '关振锋',
+            phone: '12345678900',
+            sex: 1,
+            sexDesc: '男',
+            address: 'test',
+            avatar: '',
+            wechatNo: '微信号'
+        }
+    })
+}
+
+/**
+ * 首页收集人信息
+ */
+export function getRecycleCollectorDetail(collectorNo) {
+    const data = {
+        'collectorNo': collectorNo
+    };
+    console.log(data);
+    return Promise.resolve({
+        code: 200,
+        msg: '',
+        data: {
+            username: '关振锋',
+            phone: '18255408516',
+            recycleCommodity: '电冰箱/洗衣机/空调/电视机/风扇/旧手机等',
+            avatar: 'https://recycle-thing.oss-cn-hangzhou.aliyuncs.com/RCI1538312169078KS.jpeg'
         }
     })
 }

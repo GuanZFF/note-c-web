@@ -49,9 +49,9 @@ class FloatingWindow extends Component {
                     <img src={iconClose} alt="fork" className="iconClose" onClick={this.cancelPopup.bind(this)}/>
                 </div>
                 <div className="forkContext">
-                    <p className="phoneNum">18255408516</p>
+                    <p className="phoneNum">{this.props.phone}</p>
                     <div className="popupButton">
-                        <Button name="拨打" callback={() => window.location.href = "tel:18255408516"}/>
+                        <Button name="拨 号" callback={() => window.location.href = "tel:" + this.props.phone}/>
                     </div>
                 </div>
             </div>

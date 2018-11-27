@@ -28,6 +28,13 @@
     font-size: 24px;
 }
 
+.NoteContent {
+    color: red;
+    font-family: serif;
+    font-style: normal;
+    margin-right: 10px;
+}
+
 hr {
     border: 0;
     height: 1px;

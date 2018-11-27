@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './CommodityList.css';
-import {getRecycleCommodity} from './mock/mock-api';
+import {getRecycleCommodity, getRecycleCollector} from './mock/mock-api';
 import BusinessCard from './component/BusinessCard';
 import CommodityButton from './component/CommodityButton';
 import LimitedInfiniteScroll from 'react-limited-infinite-scroll';
@@ -22,6 +22,7 @@ class CommodityList extends Component {
             showHeader: !!collectorNo,  // 是否展示商品头
             showFloating: true,         // 是否展示商品尾
             collectorNo: collectorNo,   // 收集人编号
+            phone: '',                  // 收集人手机号
         };
         this.loadNextPage = this.loadNextPage.bind(this);
     }
@@ -30,9 +31,26 @@ class CommodityList extends Component {
      * 初始值
      */
     componentWillMount() {
+        this.state.collectorNo && this.initCollector();
         this.loadNextPage();
-        console.log(this.state);
     }
+
+    /**
+     * 初始化收集人信息
+     */
+    initCollector = () => {
+        getRecycleCollector(this.state.collectorNo).then(res => {
+            if (res.code !== 200) {
+                console.log(res);
+                return;
+            }
+            this.setState({
+                phone: res.data.phone
+            });
+        }).catch(err => {
+            console.log(err);
+        });
+    };
 
     /**
      * 构建商品列表
@@ -92,7 +110,7 @@ class CommodityList extends Component {
                 }
                 {
                     // 浮动窗口
-                    this.state.showFloating && <FloatingWindow/>
+                    this.state.showFloating && <FloatingWindow phone={this.state.phone}/>
                 }
             </div>
         );

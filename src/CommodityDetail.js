@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './CommodityDetail.css';
 import {getUrlParam} from './utils/Url';
-import {getCommodityDetail, getCollectorDetail} from './mock/mock-api';
+import {getCommodityDetail, getRecycleCollector} from './mock/mock-api';
 import SliderImg from './component/SliderImg';
 import ArrowRight from './component/ArrowRight';
 
@@ -49,7 +49,7 @@ class CommodityDetail extends Component {
     };
 
     initCollectorDetail = (collectorNo) => {
-        getCollectorDetail(collectorNo)
+        getRecycleCollector(collectorNo)
             .then(res => {
                 this.setState({
                     contactName: res.data.username,
@@ -79,6 +79,7 @@ class CommodityDetail extends Component {
                     </div>
                     <hr/>
                     <h1>推文设计</h1>
+                    <p className="NoteContent">注意 : 若想购买需要通过下面的电话联系卖家！！！</p>
                 </div>
                 <div className="DetailContextSecond">
                     <ArrowRight title="姓名" content={this.state.contactName}/>
