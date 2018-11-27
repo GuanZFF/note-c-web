@@ -51,7 +51,7 @@ class FloatingWindow extends Component {
                 <div className="forkContext">
                     <p className="phoneNum">18255408516</p>
                     <div className="popupButton">
-                        <Button name="拨打"/>
+                        <Button name="拨打" callback={() => window.location.href = "tel:18255408516"}/>
                     </div>
                 </div>
             </div>
