@@ -145,9 +145,9 @@ export function getCommodityDetail(commodityNo) {
             recycleTime: '2018-08-15 13:58:43',
             expectSellPrice: '23.5',
             imgUrl: [
-                'https://recycle-thing.oss-cn-hangzhou.aliyuncs.com/RCI1538314414865LF.jpeg',
-                'https://recycle-thing.oss-cn-hangzhou.aliyuncs.com/RCI1540226780829YX.jpeg',
-                'https://recycle-thing.oss-cn-hangzhou.aliyuncs.com/RCI1538312157273BT.jpeg',
+                'https://recycle-thing.oss-cn-hangzhou.aliyuncs.com/img3.jpeg',
+                'https://recycle-thing.oss-cn-hangzhou.aliyuncs.com/img6.jpeg',
+                'https://recycle-thing.oss-cn-hangzhou.aliyuncs.com/img9.jpg',
             ]
         }
     };
@@ -262,6 +262,10 @@ export function getCollectorDetail(collectorNo) {
             }]
         }
     })
+}
+
+export function insertOrder(order) {
+
 }
 
 function sleep(numberMillis) {

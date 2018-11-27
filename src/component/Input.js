@@ -4,13 +4,16 @@ import './Input.css';
 class Input extends Component{
     constructor(props) {
         super(props);
+        this.state = {};
     }
 
     render() {
-        const {placeholder} = this.props;
         return (
             <div className="Input">
-                <input placeholder={placeholder || "请输入内容"} className="InputContext"/>
+                <input placeholder={this.props.placeholder || "请输入内容"}
+                       className="InputContext"
+                       onChange={this.props.value}
+                       value={this.props.defaultValue || ''}/>
             </div>
         );
     }

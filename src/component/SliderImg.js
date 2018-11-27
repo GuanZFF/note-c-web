@@ -73,6 +73,7 @@ class SliderImg extends Component {
 
     componentWillReceiveProps(nextProps) {
         // 组装新的图片列表，在列表中第一张前加上最后一张，最后一张后加上第一张
+        this.state.images.length = 0;
         Object.assign(this.state.images, nextProps.images);
         this.state.images.push(nextProps.images[0]);
         this.state.images.unshift(nextProps.images[nextProps.images.length - 1]);

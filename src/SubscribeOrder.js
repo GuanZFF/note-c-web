@@ -6,12 +6,33 @@ import Input from './component/Input';
 class SubscribeOrder extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            phone: '',
+            address: ''
+        };
     }
 
     /**
      * 创建订单
      */
     createOrder = () => {
+        console.log(this.state);
+        this.setState({
+            phone: '',
+            address: ''
+        });
+    };
+
+    handlePhone = (input) => {
+        this.setState({
+            phone: input.target.value
+        });
+    };
+
+    handleAddress = (input) => {
+        this.setState({
+            address: input.target.value
+        });
     };
 
     render() {
@@ -26,8 +47,8 @@ class SubscribeOrder extends Component {
                 {
                     // 下单内容
                     <div className="SubscribeOrderContext">
-                        <Input placeholder="请输入手机号"/>
-                        <Input placeholder="请输入地址"/>
+                        <Input placeholder="请输入手机号" value={this.handlePhone.bind(this)} defaultValue={this.state.phone}/>
+                        <Input placeholder="请输入地址" value={this.handleAddress.bind(this)} defaultValue={this.state.address}/>
                     </div>
                 }
                 {
