@@ -30,12 +30,12 @@ class CommodityButton extends Component {
                     <img src={imgUrl || DefaultImg} alt="logo" className="ImgBox"/>
                 </div>
                 <div className="CommodityContext">
+                    <div className="commodityTag">
+                        <Button name="5成新" buttonName="ButtonTag" callback={() => console.log(123)}/>
+                    </div>
                     <p className="CommodityTitle">{name}</p>
                     <p className="CommodityPrice">{price}元</p>
                     <p className="CommodityRemark">{remark}</p>
-                </div>
-                <div className="commodityTag">
-                    <Button name="5成新" buttonName="ButtonTag" callback={() => console.log(123)}/>
                 </div>
             </div>
         );

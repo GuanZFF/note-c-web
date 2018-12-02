@@ -267,8 +267,8 @@ export function getRecycleCollectorDetail(collectorNo) {
         code: 200,
         msg: '',
         data: {
-            username: '关振锋',
-            phone: '18255408516',
+            username: '欧阳克勤',
+            phone: '13252078516',
             recycleCommodity: '电冰箱/洗衣机/空调/电视机/风扇/旧手机等',
             avatar: 'https://recycle-thing.oss-cn-hangzhou.aliyuncs.com/RCI1538312169078KS.jpeg'
         }

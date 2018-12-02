@@ -26,6 +26,9 @@
     width: 100px;
     height: 95px;
 }
+.commodityTag {
+    float: right;
+}
 
 .CommodityTitle {
     margin: 0;

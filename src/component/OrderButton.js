@@ -23,13 +23,11 @@ class OrderButton extends Component {
                 {
                     // 订单卡片详情
                     <div className="OrderButtonContext">
-
-                    </div>
-                }
-                {
-                    // 订单标签
-                    <div className="OrderButtonTag">
-                        <Button name={stateDesc} buttonName={buttonName}/>
+                        <div className="OrderButtonContextTag">
+                            <Button name={stateDesc} buttonName={buttonName}/>
+                        </div>
+                        <h5 className="OrderButtonContextHeader">洗衣机洗衣机洗衣机</h5>
+                        <p>2018-07-09 12:13:23</p>
                     </div>
                 }
             </div>

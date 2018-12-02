@@ -20,3 +20,14 @@
     flex: 1;
     text-align: left;
 }
+
+.OrderButtonContextTag {
+    float: right;
+}
+
+.OrderButtonContextHeader {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 3px 0;
+}
