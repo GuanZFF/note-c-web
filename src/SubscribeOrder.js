@@ -2,13 +2,15 @@ import React, {Component} from 'react';
 import './SubscribeOrder.css';
 import Button from './component/Button';
 import Input from './component/Input';
+import TextArea from './component/TextArea';
 
 class SubscribeOrder extends Component {
     constructor(props) {
         super(props);
         this.state = {
             phone: '',
-            address: ''
+            address: '',
+            remark: ''
         };
     }
 
@@ -16,11 +18,14 @@ class SubscribeOrder extends Component {
      * 创建订单
      */
     createOrder = () => {
-        console.log(this.state);
-        this.setState({
-            phone: '',
-            address: ''
-        });
+        let confirm = window.confirm("确认下单");
+        if (confirm) {
+            this.setState({
+                phone: '',
+                address: '',
+                remark: ''
+            });
+        }
     };
 
     handlePhone = (input) => {
@@ -32,6 +37,12 @@ class SubscribeOrder extends Component {
     handleAddress = (input) => {
         this.setState({
             address: input.target.value
+        });
+    };
+
+    handleRemark = (text) => {
+        this.setState({
+            remark: text.target.value
         });
     };
 
@@ -49,6 +60,7 @@ class SubscribeOrder extends Component {
                     <div className="SubscribeOrderContext">
                         <Input placeholder="请输入手机号" value={this.handlePhone.bind(this)} defaultValue={this.state.phone}/>
                         <Input placeholder="请输入地址" value={this.handleAddress.bind(this)} defaultValue={this.state.address}/>
+                        <TextArea placeholder="备注" value={this.handleRemark.bind(this)} defaultValue={this.state.remark}/>
                     </div>
                 }
                 {

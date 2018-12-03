@@ -26,7 +26,7 @@ class OrderButton extends Component {
                         <div className="OrderButtonContextTag">
                             <Button name={stateDesc} buttonName={buttonName}/>
                         </div>
-                        <h5 className="OrderButtonContextHeader">洗衣机洗衣机洗衣机</h5>
+                        <h4 className="OrderButtonContextHeader">洗衣机洗衣机洗衣机</h4>
                         <p>2018-07-09 12:13:23</p>
                     </div>
                 }

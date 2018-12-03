@@ -4,6 +4,7 @@
 .InputContext {
     border: 1px solid #dcdfe6;
     color: #606266;
+    font-size: medium;
     padding: 0 15px;
     border-radius: 4px;
     height: 40px;

@@ -1,0 +1,22 @@
+.TextArea {
+
+}
+
+.TextAreaContext {
+    padding: 5px 13px;
+    font-size: medium;
+    border: 1px solid #dcdfe6;
+    border-radius: 4px;
+    color: #606266;
+    width: -webkit-fill-available;
+    margin: 10px 2px;
+    transition: border-color .2s;
+    box-sizing: border-box;
+    line-height: 1.5;
+    -webkit-appearance: none;
+}
+
+.TextAreaContext:focus {
+    outline: none;
+    border-color: #409eff;
+}
