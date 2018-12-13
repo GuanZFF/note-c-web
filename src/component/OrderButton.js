@@ -10,8 +10,15 @@ class OrderButton extends Component {
     }
 
     render() {
-        const {imgUrl, stateDesc, state} = this.props;
+        const {imgUrl, orderNo, orderTime, state} = this.props;
         const buttonName = state === 1 ? 'BlueButtonTag' : 'RedButtonTag';
+        let stateDesc = '未确定类型';
+        if (state === 1) {
+            stateDesc = "订单未完成";
+        }
+        if (state === 2) {
+            stateDesc = "订单完成";
+        }
         return (
             <div className="OrderButton">
                 {
@@ -26,8 +33,8 @@ class OrderButton extends Component {
                         <div className="OrderButtonContextTag">
                             <Button name={stateDesc} buttonName={buttonName}/>
                         </div>
-                        <h4 className="OrderButtonContextHeader">洗衣机洗衣机洗衣机</h4>
-                        <p>2018-07-09 12:13:23</p>
+                        <h4 className="OrderButtonContextHeader">{orderNo}</h4>
+                        <p>{orderTime}</p>
                     </div>
                 }
             </div>

@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
-import {orderList} from './mock/mock-api';
+import {orderList} from './mock/api';
 import LimitedInfiniteScroll from 'react-limited-infinite-scroll';
 import OrderButton from './component/OrderButton';
 import './OrderList.css';
+import {getCookie} from './utils/CookieUtil';
 
 class OrderList extends Component {
     constructor(props) {
@@ -33,9 +34,10 @@ class OrderList extends Component {
             return (
                 <OrderButton
                     key={index}
-                    imgUrl={item.commodityPicture}
-                    stateDesc={item.stateDesc}
-                    state={item.state}>
+                    imgUrl={item.orderImg}
+                    orderNo={item.orderNo}
+                    orderTime={item.orderTime}
+                    state={item.status}>
                 </OrderButton>
             );
         })
@@ -45,9 +47,10 @@ class OrderList extends Component {
      * 获取订单列表数据
      */
     loadNextPage = () => {
-        let openId = "123";
+        let openId = getCookie('openId');
 
-        orderList(openId).then(res => {
+        orderList(openId, this.state.pageNo).then(res => {
+            console.log(res);
             this.setState({
                 pageNo: this.state.pageNo + 1,
                 hasNextPage: res.data.hasNextPage,
@@ -75,7 +78,7 @@ class OrderList extends Component {
                         hasMore={this.state.hasNextPage}
                         spinLoader={<div className="loader">加载中...</div>}
                         mannualLoader={<div className="loader">加载更多</div>}
-                        noMore={<div className="loader">亲！你现在还没有订单呢</div>}
+                        noMore={<div className="loaderNoMore">哼，我是有底线的！！！</div>}
                         loadNext={this.loadNextPage}>
                         {this.orderList()}
                     </LimitedInfiniteScroll>

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './CommodityList.css';
-import {getRecycleCommodity, getRecycleCollector} from './mock/mock-api';
+import {getRecycleCommodity, getRecycleCollector} from './mock/api';
 import BusinessCard from './component/BusinessCard';
 import CommodityButton from './component/CommodityButton';
 import LimitedInfiniteScroll from 'react-limited-infinite-scroll';

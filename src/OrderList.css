@@ -13,3 +13,8 @@
 .loader {
     margin-bottom: 15px;
 }
+
+.loaderNoMore {
+    text-align: center;
+    margin-bottom: 10px;
+}

@@ -196,8 +196,16 @@ export function getCommodityCollector() {
     })
 }
 
-export function orderList(openId) {
-    console.log(openId);
+export function orderList(openId, pageNum, pageSize = 10) {
+    const data = {
+        'uid': openId,
+        'pageNum': pageNum,
+        'pageSize': pageSize
+    };
+    http.get('http://localhost:8083/web/order/getRecycleOrderPage', data).then(res => {
+        console.log(res);
+    });
+    console.log(openId, pageNum);
     return Promise.resolve({
         code: 200,
         msg: '',
@@ -210,7 +218,7 @@ export function orderList(openId) {
                 orderNo: 'FPHS0010001',
                 commodityNo: 'FPHS0010001',
                 commodityName: '电视机',
-                commodityPicture: 'https://zfguan.oss-cn-beijing.aliyuncs.com/tt.jpeg',
+                orderImg: 'https://zfguan.oss-cn-beijing.aliyuncs.com/tt.jpeg',
                 orderTime: '2018-08-15 13:58:43',
                 stateDesc: '订单未完成',
                 state: 1
@@ -219,7 +227,7 @@ export function orderList(openId) {
                 orderNo: 'FPHS0010001',
                 commodityNo: 'FPHS0010001',
                 commodityName: '电视机',
-                commodityPicture: 'https://zfguan.oss-cn-beijing.aliyuncs.com/img1.jpeg',
+                orderImg: 'https://zfguan.oss-cn-beijing.aliyuncs.com/img1.jpeg',
                 orderTime: '2018-08-15 13:58:43',
                 stateDesc: '订单完成',
                 state: 2

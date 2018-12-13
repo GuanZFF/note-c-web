@@ -1,7 +1,8 @@
 import http from '../component/http';
+import constant from '../constant/constant';
 
 // const basePath = 'http://www.gzhenfeng.cn:8093';
-const basePath = 'http://localhost:8082';
+const basePath = constant.httpUrl;
 
 /**
  * 获取回收的商品列表信息
@@ -72,6 +73,15 @@ export function getCollectorDetail(collectorNo) {
             }]
         }
     })
+}
+
+export function orderList(openId, pageNum, pageSize = 10) {
+    const data = {
+        'uid': openId,
+        'pageNum': pageNum,
+        'pageSize': pageSize
+    };
+    return http.get(`${basePath}/order/getRecycleOrderPage`, data);
 }
 
 
