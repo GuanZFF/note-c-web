@@ -1,9 +1,11 @@
 import React, {Component} from 'react';
 import './BusinessCard.css';
-import {getRecycleCollectorDetail} from '../mock/mock-api';
+// import {getRecycleCollectorDetail} from '../mock/mock-api';
+import {getRecycleCollector} from '../mock/api';
 import Button from "./Button";
 import IconUser from '../image/icon-user1.png';
 import DefaultImg from '../image/defaultImg.jpg';
+import {Redirect} from 'react-router-dom';
 
 class BusinessCard extends Component {
     constructor(props) {
@@ -12,10 +14,11 @@ class BusinessCard extends Component {
             username: '',
             phone: '',
             recycleCommodity: '',
-            avatar: ''
+            avatar: '',
+            isJumpPath: false,      // 是否执行路径跳转
+            jumpPath: ''            // 需要跳转的路径
         };
-        this.cardClick = this.cardClick.bind(this);
-        this.myOrderList = this.myOrderList.bind(this);
+        this.jump = this.jump.bind(this);
     }
 
     componentWillMount() {
@@ -23,7 +26,7 @@ class BusinessCard extends Component {
     }
 
     initRecycleCollector = () => {
-        getRecycleCollectorDetail(this.props.collectorNo).then(res => {
+        getRecycleCollector(this.props.collectorNo).then(res => {
             if (res.code !== 200) {
                 console.log(res);
                 return;
@@ -31,7 +34,7 @@ class BusinessCard extends Component {
             this.setState({
                 username: res.data.username,
                 phone: res.data.phone,
-                recycleCommodity: res.data.recycleCommodity,
+                recycleCommodity: res.data.remark,
                 avatar: res.data.avatar
             });
             console.log(this.state);
@@ -41,20 +44,20 @@ class BusinessCard extends Component {
     };
 
     /**
-     * 卡片的点击事件
+     * 路径跳转
+     * @param path
      */
-    cardClick = () => {
-        window.location.href = '/subscribeOrder';
-    };
-
-    /**
-     * 我的订单列表
-     */
-    myOrderList = () => {
-        window.location.href = `/orderList`;
+    jump = (path) => {
+        this.setState({
+            isJumpPath: true,
+            jumpPath: path
+        });
     };
 
     render() {
+        if (this.state.isJumpPath) {
+            return <Redirect to={this.state.jumpPath}/>
+        }
         return (
             <header className="App-header">
                 <div className="BusinessCardApp">
@@ -62,7 +65,7 @@ class BusinessCard extends Component {
                         <div className="BusinessCardHeaderTitle">
                             <h3 className="BusinessCardHeaderTitle-title">商品回收平台</h3>
                         </div>
-                        <div className="BusinessCardHeaderImg" onClick={this.myOrderList}>
+                        <div className="BusinessCardHeaderImg" onClick={() => this.jump("orderList")}>
                             <img src={IconUser} className="IconUser"/>
                         </div>
                     </div>
@@ -87,7 +90,7 @@ class BusinessCard extends Component {
                     <hr/>
                     <div className="BusinessCardContext">
                         <p className="BusinessCardContextNote">注意 : 你的预约单会由此人上门回收</p>
-                        <Button name="预约回收" buttonName="ButtonB" callback={() => this.cardClick()}/>
+                        <Button name="预约回收" buttonName="ButtonB" callback={() => this.jump("subscribeOrder")}/>
                     </div>
                 </div>
             </header>

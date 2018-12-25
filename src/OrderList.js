@@ -49,6 +49,8 @@ class OrderList extends Component {
     loadNextPage = () => {
         let openId = getCookie('openId');
 
+        openId = "123";
+
         orderList(openId, this.state.pageNo).then(res => {
             console.log(res);
             this.setState({

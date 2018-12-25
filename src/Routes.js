@@ -10,6 +10,7 @@ const routes = (
     <BrowserRouter>
         <div>
             <Route exact={true} path="/" component={CommodityList}/>
+            <Route path="/index.html" component={CommodityList}/>
             <Route path="/commodityList" component={CommodityList}/>
             <Route path="/commodityDetail" component={CommodityDetail}/>
             <Route path="/orderList" component={OrderList}/>

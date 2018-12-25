@@ -2,6 +2,7 @@ import './CommodityButton.css';
 import React, {Component} from 'react';
 import DefaultImg from '../image/defaultImg.jpg';
 import Button from "./Button";
+import {Redirect,Route} from 'react-router-dom';
 
 /**
  * 商品详情列表卡片
@@ -9,23 +10,33 @@ import Button from "./Button";
 class CommodityButton extends Component {
     constructor(props) {
         super(props);
-        this.handleClick = this.handleClick.bind(this);
+        this.state = {
+            isJumpPath: false,      // 是否执行路径跳转
+            jumpPath: ''            // 需要跳转的路径
+        };
+        this.jump = this.jump.bind(this);
     }
 
     /**
-     * 页面跳转
-     * @param commodityNo 商品订单号
+     * 路径跳转
+     * @param commodityNo
      */
-    handleClick = (commodityNo) => {
-        window.location.href = `commodityDetail?commodityNo=${commodityNo}`;
+    jump = (commodityNo) => {
+        this.setState({
+            isJumpPath: true,
+            jumpPath: `commodityDetail?commodityNo=${commodityNo}`
+        });
     };
 
     render() {
+        if (this.state.isJumpPath) {
+            return <Redirect to={this.state.jumpPath}/>
+        }
         // 上层传入的参数
         const {commodityNo, imgUrl, name, price, remark} = this.props;
         // 商品卡片
         return (
-            <div className="CommodityApp" onClick={() => this.handleClick(commodityNo)}>
+            <div className="CommodityApp" onClick={() => this.jump(commodityNo)}>
                 <div className="CommodityHeader">
                     <img src={imgUrl || DefaultImg} alt="logo" className="ImgBox"/>
                 </div>

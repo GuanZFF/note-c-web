@@ -44,6 +44,7 @@ class CommodityList extends Component {
                 console.log(res);
                 return;
             }
+            console.log(res);
             this.setState({
                 phone: res.data.phone
             });
