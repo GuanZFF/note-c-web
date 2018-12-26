@@ -56,7 +56,7 @@ class BusinessCard extends Component {
 
     render() {
         if (this.state.isJumpPath) {
-            return <Redirect to={this.state.jumpPath}/>
+            return <Redirect push to={this.state.jumpPath}/>
         }
         return (
             <header className="App-header">

@@ -67,6 +67,7 @@ class CommodityList extends Component {
                     imgUrl={item.commodityPicture}
                     name={item.commodityName}
                     price={item.expectSellPrice}
+                    damageDegree={item.damageDegree}
                     remark={item.remark}/>
             );
         });
