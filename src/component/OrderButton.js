@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './OrderButton.css';
-import DefaultImg from '../image/defaultImg.jpg';
+import constant from '../constant/constant';
 import Button from "./Button";
 
 class OrderButton extends Component {
@@ -24,7 +24,7 @@ class OrderButton extends Component {
                 {
                     // 订单卡片图片
                     <div className="OrderButtonHeader">
-                        <img src={imgUrl || DefaultImg} alt="logo" className="ImgBox"/>
+                        <img src={imgUrl || constant.defaultAvatar} alt="logo" className="ImgBox"/>
                     </div>
                 }
                 {

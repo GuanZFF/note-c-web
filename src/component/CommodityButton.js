@@ -1,8 +1,8 @@
 import './CommodityButton.css';
 import React, {Component} from 'react';
-import DefaultImg from '../image/defaultImg.jpg';
+import constant from '../constant/constant';
 import Button from "./Button";
-import {Redirect, Route} from 'react-router-dom';
+import {Redirect} from 'react-router-dom';
 
 /**
  * 商品详情列表卡片
@@ -39,7 +39,7 @@ class CommodityButton extends Component {
         return (
             <div className="CommodityApp" onClick={() => this.jump(commodityNo)}>
                 <div className="CommodityHeader">
-                    <img src={imgUrl || DefaultImg} alt="logo" className="ImgBox"/>
+                    <img src={imgUrl || constant.defaultAvatar} alt="logo" className="ImgBox"/>
                 </div>
                 <div className="CommodityContext">
                     {

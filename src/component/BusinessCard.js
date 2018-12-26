@@ -4,7 +4,7 @@ import './BusinessCard.css';
 import {getRecycleCollector} from '../mock/api';
 import Button from "./Button";
 import IconUser from '../image/icon-user1.png';
-import DefaultImg from '../image/defaultImg.jpg';
+import constant from '../constant/constant';
 import {Redirect} from 'react-router-dom';
 
 class BusinessCard extends Component {
@@ -72,7 +72,7 @@ class BusinessCard extends Component {
                     <hr/>
                     <div className="ContactInfo">
                         <div className="ContactInfoImgDiv">
-                            <img src={this.state.avatar || DefaultImg} className="ContactInfoImg"/>
+                            <img src={this.state.avatar || constant.defaultAvatar} className="ContactInfoImg"/>
                         </div>
                         <div className="ContactInfoThem">
                             {this.state.username}
