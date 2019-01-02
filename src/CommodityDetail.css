@@ -16,6 +16,7 @@
 
 .commodityNameDiv {
     text-align: left;
+    margin-bottom: 8px;
 }
 
 .commodityName {
@@ -32,7 +33,7 @@
     color: red;
     font-family: serif;
     font-style: normal;
-    margin-right: 10px;
+    margin-right: 20px;
 }
 
 hr {
@@ -71,4 +72,12 @@ hr {
 
 .ContextButton {
     margin: 0;
+}
+
+.RecommendDesignApp {
+    text-align: left;
+}
+
+.SellerDesignApp {
+    text-align: left;
 }

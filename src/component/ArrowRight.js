@@ -7,9 +7,13 @@ class ArrowRight extends Component {
         super(props);
     }
 
+    defaultCallback = () => {
+        console.log(123);
+    };
+
     render() {
         return (
-            <div className="arrowRight">
+            <div className="arrowRight" onClick={this.props.callback || this.defaultCallback}>
                 <div className="arrowRightTitle">
                     {this.props.title}
                 </div>

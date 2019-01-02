@@ -1,7 +1,6 @@
 import http from '../component/http';
 import constant from '../constant/constant';
 
-// const basePath = 'http://www.gzhenfeng.cn:8093';
 const basePath = constant.httpUrl;
 
 /**
@@ -30,6 +29,12 @@ export function getCommodityDetail(commodityNo) {
     return http.get(`${basePath}/commodity/getRecycleCommodity`, data);
 }
 
+/**
+ * 获取收集人信息
+ *
+ * @param collectorNo 收集人单号
+ * @returns {*|Promise}
+ */
 export function getRecycleCollector(collectorNo) {
     const data = {
         'collectorNo': collectorNo
@@ -38,43 +43,13 @@ export function getRecycleCollector(collectorNo) {
 }
 
 /**
- * 获取商品收集人信息列表
+ * 获取订单信息
+ *
+ * @param openId 微信唯一ID
+ * @param pageNum
+ * @param pageSize
+ * @returns {*|Promise}
  */
-export function getCollectorDetail(collectorNo) {
-    return Promise.resolve({
-        code: 200,
-        msg: '',
-        data: {
-            count: 100,
-            hasNextPage: 1,
-            pageNum: 1,
-            list: [{
-                id: 1,
-                collectorNo: 'FPHS0010001',
-                status: 1,
-                statusDesc: '存在',
-                username: 'test',
-                phone: '12345678900',
-                sex: 1,
-                sexDesc: '男',
-                address: 'test',
-                avatar: ''
-            }, {
-                id: 2,
-                collectorNo: 'FPHS0010001',
-                status: 2,
-                statusDesc: '不存在',
-                username: 'test.test',
-                phone: '12345678900',
-                sex: 2,
-                sexDesc: '女',
-                address: 'test',
-                avatar: ''
-            }]
-        }
-    })
-}
-
 export function orderList(openId, pageNum, pageSize = 10) {
     const data = {
         'uid': openId,
@@ -82,6 +57,25 @@ export function orderList(openId, pageNum, pageSize = 10) {
         'pageSize': pageSize
     };
     return http.get(`${basePath}/order/getRecycleOrderPage`, data);
+}
+
+/**
+ * 生成订单
+ *
+ * @param uid
+ * @param phone
+ * @param address
+ * @param remark
+ * @returns {*|Promise}
+ */
+export function insertOrder(uid, phone, address, remark) {
+    const data = {
+        'uid': uid,
+        'phone': phone,
+        'address': address,
+        'remark': remark
+    };
+    return http.post(`${basePath}/order/insert`, data);
 }
 
 
