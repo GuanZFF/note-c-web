@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {orderList} from './mock/api';
+import {orderList, reverseOrderList} from './mock/api';
 import LimitedInfiniteScroll from 'react-limited-infinite-scroll';
 import OrderButton from './component/OrderButton';
 import './OrderList.css';
@@ -13,10 +13,14 @@ class OrderList extends Component {
             pageSize: 10,                                   // 页大小
             hasNextPage: false,                             // 是否还有下一页
             list: [],                                       // 订单列表
+            reversePageNo: 1,                               // 当前页
+            reversePageSize: 10,                            // 页大小
+            reverseHasNextPage: false,                      // 是否还有下一页
+            reverseList: [],                                // 反向订单列表
             orderListClassName: 'LeftOrderList',            // 订单列表class名称
             reverseOrderListClassName: '_RightOrderList',   // 反向订单列表
-            orderTitle1: 'OrderTitle1',
-            orderTitle2: '_OrderTitle2',
+            orderTitle1: 'OrderTitle1',                     // 标题
+            orderTitle2: '_OrderTitle2',                    // 标题
         };
         // 绑定监听事件
         this.loadNextPage = this.loadNextPage.bind(this);
@@ -27,6 +31,7 @@ class OrderList extends Component {
      */
     componentWillMount() {
         this.loadNextPage();
+        this.loadNextReversePage();
     }
 
     /**
@@ -35,6 +40,24 @@ class OrderList extends Component {
      */
     orderList = () => {
         return this.state.list.map((item, index) => {
+            return (
+                <OrderButton
+                    key={index}
+                    imgUrl={item.orderImg}
+                    orderNo={item.orderNo}
+                    orderTime={item.orderTime}
+                    state={item.status}>
+                </OrderButton>
+            );
+        })
+    };
+
+    /**
+     * 反向卡片详情、样式设置
+     * @returns {any[]}
+     */
+    reverseOrderList = () => {
+        return this.state.reverseList.map((item, index) => {
             return (
                 <OrderButton
                     key={index}
@@ -63,6 +86,28 @@ class OrderList extends Component {
                 pageNo: this.state.pageNo + 1,
                 hasNextPage: res.data.hasNextPage,
                 list: this.state.list.concat(res.data.list)
+            });
+        }).catch(err => {
+            console.log(err);
+        });
+    };
+
+    /**
+     * 获取反向订单列表数据
+     */
+    loadNextReversePage = () => {
+        let openId = getCookie('openId');
+
+        if (!openId) {
+            openId = "123";
+        }
+
+        reverseOrderList(openId, this.state.reversePageNo).then(res => {
+            console.log(res);
+            this.setState({
+                reversePageNo: this.state.reversePageNo + 1,
+                reverseHasNextPage: res.data.hasNextPage,
+                reverseList: this.state.reverseList.concat(res.data.list)
             });
         }).catch(err => {
             console.log(err);
@@ -126,12 +171,12 @@ class OrderList extends Component {
                         <LimitedInfiniteScroll
                             limit={Infinity}
                             autoLoad={false}
-                            hasMore={this.state.hasNextPage}
+                            hasMore={this.state.reverseHasNextPage}
                             spinLoader={<div className="loader">加载中...</div>}
                             mannualLoader={<div className="loader">加载更多</div>}
                             noMore={<div className="loaderNoMore">哼，我是有底线的！！！</div>}
-                            loadNext={this.loadNextPage}>
-                            {this.orderList()}
+                            loadNext={this.loadNextReversePage}>
+                            {this.reverseOrderList()}
                         </LimitedInfiniteScroll>
                     </div>
                 }

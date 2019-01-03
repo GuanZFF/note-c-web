@@ -59,15 +59,12 @@
 }
 
 .LeftOrderList {
-    transition: all .5ms;
 }
 ._LeftOrderList {
     display: none;
-    transition: all .5ms;
 }
 
 .RightOrderList {
-    display: none;
 }
 
 ._RightOrderList {

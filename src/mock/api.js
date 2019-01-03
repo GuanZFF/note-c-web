@@ -60,6 +60,23 @@ export function orderList(openId, pageNum, pageSize = 10) {
 }
 
 /**
+ * 获取反向订单
+ *
+ * @param openId 微信唯一ID
+ * @param pageNum 第几页
+ * @param pageSize 页大小
+ * @returns {*|Promise}
+ */
+export function reverseOrderList(openId, pageNum, pageSize = 10) {
+    const data = {
+        'uid': openId,
+        'pageNum': pageNum,
+        'pageSize': pageSize
+    };
+    return http.get(`${basePath}/reverse/getReverseOrderPage`, data);
+}
+
+/**
  * 生成订单
  *
  * @param uid
