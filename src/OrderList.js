@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {orderList, reverseOrderList} from './mock/api';
 import LimitedInfiniteScroll from 'react-limited-infinite-scroll';
 import OrderButton from './component/OrderButton';
+import ReverseOrderButton from './component/ReverseOrderButton';
 import './OrderList.css';
 import {getCookie} from './utils/CookieUtil';
 
@@ -59,13 +60,16 @@ class OrderList extends Component {
     reverseOrderList = () => {
         return this.state.reverseList.map((item, index) => {
             return (
-                <OrderButton
+                <ReverseOrderButton
                     key={index}
-                    imgUrl={item.orderImg}
                     orderNo={item.orderNo}
-                    orderTime={item.orderTime}
+                    imgUrl={item.orderImg}
+                    phone={item.phone}
+                    address={item.address}
+                    startTime={item.startTime}
+                    endTime={item.endTime}
                     state={item.status}>
-                </OrderButton>
+                </ReverseOrderButton>
             );
         })
     };

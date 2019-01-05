@@ -1,0 +1,16 @@
+.ReverseOrderButton {
+    border-radius: 3px;
+    background-color: #f9f6f9;
+    margin: 8px 10px;
+    display: flex;
+    padding: 12px;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.ReverseContext {
+    margin: -10px 0;
+}
+
+.ReverseOrderContext {
+    margin: 10px 0;
+}
