@@ -12,6 +12,7 @@ class BusinessCard extends Component {
         super(props);
         this.state = {
             username: '',
+            status: 0,              // 用户状态 0：默认状态，1：启用状态，2：停用状态
             phone: '',
             recycleCommodity: '',
             avatar: '',
@@ -35,7 +36,8 @@ class BusinessCard extends Component {
                 username: res.data.username,
                 phone: res.data.phone,
                 recycleCommodity: res.data.remark,
-                avatar: res.data.avatar
+                avatar: res.data.avatar,
+                status: res.data.status,
             });
             console.log(this.state);
         }).catch(err => {
@@ -58,6 +60,10 @@ class BusinessCard extends Component {
         if (this.state.isJumpPath) {
             return <Redirect push to={this.state.jumpPath}/>
         }
+
+        // 判断用户状态
+        const buttonName = this.state.status === 0 ? 'ButtonTag' : this.state.status === 1 ? 'BlueButtonTag' : 'RedButtonTag';
+
         return (
             <header className="App-header">
                 <div className="BusinessCardApp">
@@ -80,7 +86,7 @@ class BusinessCard extends Component {
                             {this.state.phone}
                         </div>
                         <div className="ContactInfoTag">
-                            <Button name="回收人信息" buttonName="ButtonTag"/>
+                            <Button name="回收人信息" buttonName={buttonName}/>
                         </div>
                         <div className="clear"/>
                         <div className="ContactInfoEnd">

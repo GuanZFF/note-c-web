@@ -95,6 +95,24 @@ export function insertOrder(uid, phone, address, remark) {
     return http.post(`${basePath}/order/insert`, data);
 }
 
+/**
+ * 生成预定订单
+ *
+ * @param uid
+ * @param phone
+ * @param address
+ * @param remark
+ * @returns {*|Promise}
+ */
+export function insertReverseOrder(uid, phone, address, remark) {
+    const data = {
+        'uid': uid,
+        'phone': phone,
+        'address': address,
+        'remark': remark
+    };
+    return http.post(`${basePath}/reverse/insert`, data);
+}
 
 function sleep(numberMillis) {
     var now = new Date();

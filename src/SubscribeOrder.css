@@ -17,3 +17,8 @@
 .OrderButtonTag {
     margin-top: 10px;
 }
+
+.SubscribeOrderNote {
+    color: #a7191e;
+    font-size: smaller;
+}

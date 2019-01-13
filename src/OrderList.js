@@ -5,6 +5,7 @@ import OrderButton from './component/OrderButton';
 import ReverseOrderButton from './component/ReverseOrderButton';
 import './OrderList.css';
 import {getCookie} from './utils/CookieUtil';
+import constant from './constant/constant';
 
 class OrderList extends Component {
     constructor(props) {
@@ -81,7 +82,7 @@ class OrderList extends Component {
         let openId = getCookie('openId');
 
         if (!openId) {
-            openId = "123";
+            openId = constant.defaultOpenId;
         }
 
         orderList(openId, this.state.pageNo).then(res => {
@@ -103,7 +104,7 @@ class OrderList extends Component {
         let openId = getCookie('openId');
 
         if (!openId) {
-            openId = "123";
+            openId = constant.defaultOpenId;
         }
 
         reverseOrderList(openId, this.state.reversePageNo).then(res => {
@@ -155,7 +156,7 @@ class OrderList extends Component {
                     </div>
                 }
                 {
-                    // 正向订单列表
+                    // 购买订单列表
                     <div className={this.state.orderListClassName}>
                         <LimitedInfiniteScroll
                             limit={Infinity}
@@ -170,7 +171,7 @@ class OrderList extends Component {
                     </div>
                 }
                 {
-                    // 反向订单列表
+                    // 预定订单列表
                     <div className={this.state.reverseOrderListClassName}>
                         <LimitedInfiniteScroll
                             limit={Infinity}

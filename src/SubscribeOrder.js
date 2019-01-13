@@ -3,7 +3,7 @@ import './SubscribeOrder.css';
 import Button from './component/Button';
 import Input from './component/Input';
 import TextArea from './component/TextArea';
-import {insertOrder} from './mock/api';
+import {insertReverseOrder} from './mock/api';
 import {getCookie} from "./utils/CookieUtil";
 
 class SubscribeOrder extends Component {
@@ -28,7 +28,7 @@ class SubscribeOrder extends Component {
 
         let confirm = window.confirm("确认下单");
         if (confirm) {
-            insertOrder(openId, this.state.phone, this.state.address, this.state.remark).then(res => {
+            insertReverseOrder(openId, this.state.phone, this.state.address, this.state.remark).then(res => {
                 console.log(res);
                 this.setState({
                     phone: '',
@@ -77,6 +77,7 @@ class SubscribeOrder extends Component {
                                defaultValue={this.state.address}/>
                         <TextArea placeholder="备注" value={this.handleRemark.bind(this)}
                                   defaultValue={this.state.remark}/>
+                        <p className="SubscribeOrderNote">注意 : 预约后我们会在12个小时内进行上门回收，如有其他要求请在备注中注明</p>
                     </div>
                 }
                 {
