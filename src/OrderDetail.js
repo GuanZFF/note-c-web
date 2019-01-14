@@ -71,7 +71,7 @@ class OrderDetail extends Component {
                     </div>
                 </div>
                 <div className="OrderDetailOther">
-                    <Button name="意见反馈" buttonName="ButtonTag" callback={() => console.log(123)}/>
+                    <Button name="意见反馈" buttonName="SmallerButtonTag" callback={() => console.log(123)}/>
                 </div>
             </div>
         );

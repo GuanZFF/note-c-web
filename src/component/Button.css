@@ -36,6 +36,14 @@
     display: block;
 }
 
+.SmallerButtonTag {
+    border: 1px rgba(75, 75, 73, 0.67) solid;
+    padding: 0 8px;
+    border-radius: 100px;
+    font-size: smaller;
+    display: block;
+}
+
 .RedButtonTag {
     border: 1px red solid;
     padding: 0 8px;

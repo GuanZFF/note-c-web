@@ -1,5 +1,5 @@
 .OrderDetail {
-    padding: 0 10px;
+    padding: 0 15px;
 }
 
 .OrderDetailHeader {
@@ -42,5 +42,5 @@
 
 .OrderDetailOther {
     text-align: center;
-    padding: 30px 30% 0 30%;
+    padding: 100px 30% 0 30%;
 }
