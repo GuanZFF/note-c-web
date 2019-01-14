@@ -321,6 +321,29 @@ export function getCollectorDetail(collectorNo) {
     })
 }
 
+/**
+ * 获取订单详情
+ *
+ * @param orderNo 订单号码
+ * @returns {*|Promise}
+ */
+export function getRecycleOrder(orderNo) {
+    return Promise.resolve({
+        code: 200,
+        msg: '',
+        data: {
+            id: 1,
+            orderNo: 'FPHS0010001',
+            commodityNo: 'FPHS0010001',
+            commodityName: '电视机',
+            orderImg: 'https://zfguan.oss-cn-beijing.aliyuncs.com/tt.jpeg',
+            orderTime: '2018-08-15 13:58:43',
+            stateDesc: '订单未完成',
+            state: 1
+        }
+    })
+}
+
 export function insertOrder(order) {
 
 }

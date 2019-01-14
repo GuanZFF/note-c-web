@@ -1,0 +1,46 @@
+.OrderDetail {
+    padding: 0 10px;
+}
+
+.OrderDetailHeader {
+    text-align: center;
+}
+
+.OrderDetailContent {
+}
+
+.OrderDetailNo {
+    overflow: hidden;
+}
+
+.OrderDetailTime {
+    overflow: hidden;
+}
+
+.OrderDetailPhone {
+    overflow: hidden;
+}
+
+.OrderDetailAddress {
+    overflow: hidden;
+}
+
+.OrderDetailRemark {
+    overflow: hidden;
+}
+
+.OrderDetailContentLeft {
+    margin: 10px 0;
+    float: left;
+}
+
+.OrderDetailContentRight {
+    margin: 10px 0;
+    float: right;
+    text-align: right;
+}
+
+.OrderDetailOther {
+    text-align: center;
+    padding: 30px 30% 0 30%;
+}

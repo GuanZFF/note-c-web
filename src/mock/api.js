@@ -114,12 +114,16 @@ export function insertReverseOrder(uid, phone, address, remark) {
     return http.post(`${basePath}/reverse/insert`, data);
 }
 
-function sleep(numberMillis) {
-    var now = new Date();
-    var exitTime = now.getTime() + numberMillis;
-    while (true) {
-        now = new Date();
-        if (now.getTime() > exitTime)
-            return;
-    }
+/**
+ * 获取订单详情
+ *
+ * @param orderNo 订单号码
+ * @returns {*|Promise}
+ */
+export function getRecycleOrder(orderNo) {
+    const data = {
+        orderNo: orderNo
+    };
+    return http.get(`${basePath}/order/getRecycleOrder`, data);
 }
+

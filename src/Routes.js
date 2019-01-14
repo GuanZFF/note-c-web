@@ -4,6 +4,7 @@ import {BrowserRouter, Route} from 'react-router-dom';
 import CommodityList from './CommodityList';
 import CommodityDetail from './CommodityDetail';
 import OrderList from './OrderList';
+import OrderDetail from './OrderDetail';
 import SubscribeOrder from './SubscribeOrder';
 
 const routes = (
@@ -15,6 +16,7 @@ const routes = (
             <Route path="/commodityDetail" component={CommodityDetail}/>
             <Route path="/orderList" component={OrderList}/>
             <Route path="/subscribeOrder" component={SubscribeOrder}/>
+            <Route path="/orderDetail" component={OrderDetail}/>
         </div>
     </BrowserRouter>
 );
