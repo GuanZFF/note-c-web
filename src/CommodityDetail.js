@@ -5,6 +5,7 @@ import {getCommodityDetail, getRecycleCollector} from './mock/api';
 import SliderImg from './component/SliderImg';
 import ArrowRight from './component/ArrowRight';
 import {Redirect} from 'react-router-dom';
+import Button from './component/Button';
 
 class CommodityDetail extends Component {
 
@@ -134,6 +135,9 @@ class CommodityDetail extends Component {
                 </div>
                 <div className="DetailContextThird">
                     {this.sellerDesign()}
+                </div>
+                <div className="CreateOrder">
+                    <Button name="下 单" buttonName="ButtonA" callback={() => this.jump('/createOrder?commodityNo=' + this.commodityNo)}/>
                 </div>
             </div>
         );

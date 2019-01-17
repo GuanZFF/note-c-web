@@ -1,0 +1,87 @@
+/*父级样式设置*/
+.CreateOrderPay {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/*支付商品内容设置*/
+.PayCommodityInfo {
+    background-color: #f9f6f9;
+    padding: 12px;
+    overflow: hidden;
+}
+
+.PayCommodityHeader {
+    float: left;
+    width: 100px;
+    height: 100px;
+    border-radius: 3px;
+    margin-right: 8px;
+}
+
+.PayCommodityImg {
+    border-radius: 3px;
+    width: 100px;
+    height: 100px;
+}
+
+.PayCommodityContent {
+    width: 65%;
+    float: left;
+}
+
+.PayCommodityTitle {
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.PayCommodityContentInfo {
+    margin: 15px 0 0 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/*收货人信息设置*/
+.PayPurchaserInfo {
+    margin-top: 15px;
+    background-color: #f9f6f9;
+    padding: 12px;
+}
+
+/*支付底部样式设置*/
+.Pay {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+}
+
+.PayContent {
+    float: left;
+    background-color: #f9f6f9;
+    text-align: right;
+    width: 65%;
+}
+
+.PayMoney {
+    color: #eb0000;
+}
+
+.PayContentTxt {
+    margin: 13px 0;
+}
+
+.PayButton {
+    background-color: #eb0000;
+    text-align: center;
+    color: white;
+    float: left;
+    width: 35%;
+}
+
+.PayButtonTxt {
+    margin: 13px 0;
+}

@@ -6,6 +6,7 @@ import CommodityDetail from './CommodityDetail';
 import OrderList from './OrderList';
 import OrderDetail from './OrderDetail';
 import SubscribeOrder from './SubscribeOrder';
+import CreateOrder from './CreateOrder';
 
 const routes = (
     <BrowserRouter>
@@ -17,6 +18,7 @@ const routes = (
             <Route path="/orderList" component={OrderList}/>
             <Route path="/subscribeOrder" component={SubscribeOrder}/>
             <Route path="/orderDetail" component={OrderDetail}/>
+            <Route path="/createOrder" component={CreateOrder}/>
         </div>
     </BrowserRouter>
 );

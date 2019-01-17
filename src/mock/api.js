@@ -79,15 +79,17 @@ export function reverseOrderList(openId, pageNum, pageSize = 10) {
 /**
  * 生成订单
  *
- * @param uid
- * @param phone
- * @param address
- * @param remark
+ * @param uid 用户单号
+ * @param orderImg 订单商品图片
+ * @param phone 手机号
+ * @param address 地址
+ * @param remark 备注
  * @returns {*|Promise}
  */
-export function insertOrder(uid, phone, address, remark) {
+export function insertOrder(uid, orderImg, phone, address, remark) {
     const data = {
         'uid': uid,
+        'orderImg': orderImg,
         'phone': phone,
         'address': address,
         'remark': remark

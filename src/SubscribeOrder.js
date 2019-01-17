@@ -5,13 +5,14 @@ import Input from './component/Input';
 import TextArea from './component/TextArea';
 import {insertReverseOrder} from './mock/api';
 import {getCookie} from "./utils/CookieUtil";
+import constant from "./constant/constant";
 
 class SubscribeOrder extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            phone: '',
-            address: '',
+            phone: getCookie(constant.phoneKey),
+            address: getCookie(constant.addressKey),
             remark: ''
         };
     }
@@ -23,13 +24,15 @@ class SubscribeOrder extends Component {
         let openId = getCookie('openId');
 
         if (!openId) {
-            openId = "123";
+            openId = constant.defaultOpenId;
         }
 
-        let confirm = window.confirm("确认下单");
+        let confirm = window.confirm("确认预约回收");
         if (confirm) {
             insertReverseOrder(openId, this.state.phone, this.state.address, this.state.remark).then(res => {
-                console.log(res);
+                if (res !== 200) {
+                    console.log(res);
+                }
                 this.setState({
                     phone: '',
                     address: '',
@@ -65,7 +68,7 @@ class SubscribeOrder extends Component {
                 {
                     // 下单头信息
                     <div className="SubscribeOrderHeader">
-                        <h3 className="SubscribeOrderH">下单页面</h3>
+                        <h3 className="SubscribeOrderH">预约页面</h3>
                     </div>
                 }
                 {
@@ -83,7 +86,7 @@ class SubscribeOrder extends Component {
                 {
                     // 下单按钮
                     <div className="OrderButtonTag">
-                        <Button name="下 单" buttonName="ButtonA" callback={this.createOrder}/>
+                        <Button name="预 约" buttonName="ButtonA" callback={this.createOrder}/>
                     </div>
                 }
             </div>
