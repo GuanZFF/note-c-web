@@ -118,7 +118,7 @@ class CreateOrder extends Component {
             <div className="CreateOrderPay">
                 {
                     // 支付商品信息
-                    <div className="PayCommodityInfo">
+                    <div className="PayCommodityInfo" onClick={() => this.jump('/commodityDetail?commodityNo=' + this.commodityNo)}>
                         <div className="PayCommodityHeader">
                             <img src={this.state.commodityPicture || constant.defaultAvatar} alt="logo"
                                  className="PayCommodityImg"/>
